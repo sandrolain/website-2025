@@ -28,6 +28,7 @@ export interface Profile {
   name: string;
   title: string;
   location: string;
+  locationUrl: string;
   website: string;
   headline: string;
   socials: {
@@ -40,8 +41,9 @@ export interface Profile {
 
 export const profile: Profile = {
   name: "Sandro Lain",
-  title: "Cloud Stack Developer",
-  location: "Padova, Italia",
+  title: "Cloud Full Stack Architecture DevelOps Engineer",
+  location: "Monselice, Padova, Italia",
+  locationUrl: "https://maps.app.goo.gl/P9L26ghoJ3mLLTZF6",
   website: "https://www.sandrolain.com",
   headline: `Cloud-Native Engineer ☁️ | DevOps & Platform Integrator ♾️ | 18+ yrs Fullstack Development | Cybersecurity Advocate ⚔️`,
   socials: [

@@ -42,7 +42,15 @@ function App() {
               <div className="flex flex-col  ml-4">
                 <h1 className="text-4xl font-thin m-0">{profile.name}</h1>
                 <div className="text-lg">{profile.title}</div>
-                <div>{profile.location}</div>
+                <div>
+                  <Link
+                    href={profile.locationUrl}
+                    color="foreground"
+                    target="_blank"
+                  >
+                    {profile.location}
+                  </Link>
+                </div>
                 <div className="flex flex-wrap mt-2 gap-4">
                   {profile.socials.map((s) => (
                     <Link
