@@ -15,7 +15,7 @@ const SkillList = ({ title, skills, color }: SkillListProps) => (
     tiltEnable={false}
   >
     <ul
-      className="columns-4 gap-10 text-xs whitespace-nowrap"
+      className="columns-3 gap-20 text-xs whitespace-nowrap"
       style={{ "--level-color": color } as React.CSSProperties}
     >
       {skills.map((skill) => (

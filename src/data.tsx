@@ -6,6 +6,11 @@ import {
   type IconDefinition,
 } from "@fortawesome/free-brands-svg-icons";
 import { faGlobe } from "@fortawesome/free-solid-svg-icons";
+import type { JSX } from "react";
+
+export type Language = "it" | "en";
+
+export type LangData<T> = Record<Language, T>;
 
 export const tiltProps = {
   tiltEnable: true,
@@ -27,6 +32,7 @@ export interface Skill {
 export interface Profile {
   name: string;
   title: string;
+  avocation: string;
   location: string;
   locationUrl: string;
   website: string;
@@ -39,110 +45,229 @@ export interface Profile {
   }[];
 }
 
-export const profile: Profile = {
-  name: "Sandro Lain",
-  title: "Cloud Full Stack Architecture DevelOps Engineer",
-  location: "Monselice, Padova, Italia",
-  locationUrl: "https://maps.app.goo.gl/P9L26ghoJ3mLLTZF6",
-  website: "https://www.sandrolain.com",
-  headline: `Cloud-Native Engineer ☁️ | DevOps & Platform Integrator ♾️ | 18+ yrs Fullstack Development | Cybersecurity Advocate ⚔️`,
-  socials: [
-    {
-      label: "LinkedIn",
-      url: "https://www.linkedin.com/in/sandrolain/",
-      color: "primary",
-      icon: faLinkedin,
-    },
-    {
-      label: "GitHub",
-      url: "https://github.com/sandrolain",
-      color: "secondary",
-      icon: faGithub,
-    },
-    {
-      label: "FullstackDeveloper.it",
-      url: "https://www.fullstackdeveloper.it",
-      color: "success",
-      icon: faGlobe,
-    },
-  ],
+const years = (new Date().getFullYear() - 2007).toString();
+
+export const profileLangs: LangData<Profile> = {
+  it: {
+    name: "Sandro Lain",
+    title: "Cloud Full Stack Architecture DevelOps Engineer",
+    avocation: "Donatore di sangue 🩸",
+    location: "Monselice, Padova, Italia",
+    locationUrl: "https://maps.app.goo.gl/P9L26ghoJ3mLLTZF6",
+    website: "https://www.sandrolain.com",
+    headline: `Cloud-Native Engineer ☁️ | DevOps & Platform Integrator ♾️ | ${years}+ yrs Fullstack Development | Cybersecurity Advocate ⚔️`,
+    socials: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/sandrolain/",
+        color: "primary",
+        icon: faLinkedin,
+      },
+      {
+        label: "GitHub",
+        url: "https://github.com/sandrolain",
+        color: "secondary",
+        icon: faGithub,
+      },
+      {
+        label: "FullstackDeveloper.it",
+        url: "https://www.fullstackdeveloper.it",
+        color: "success",
+        icon: faGlobe,
+      },
+    ],
+  },
+  en: {
+    name: "Sandro Lain",
+    title: "Cloud Full Stack Architecture DevelOps Engineer",
+    avocation: "Blood donor 🩸",
+    location: "Monselice, Padua, Italy",
+    locationUrl: "https://maps.app.goo.gl/P9L26ghoJ3mLLTZF6",
+    website: "https://www.sandrolain.com",
+    headline: `Cloud-Native Engineer ☁️ | DevOps & Platform Integrator ♾️ | 18+ yrs Fullstack Development | Cybersecurity Advocate ⚔️`,
+    socials: [
+      {
+        label: "LinkedIn",
+        url: "https://www.linkedin.com/in/sandrolain/",
+        color: "primary",
+        icon: faLinkedin,
+      },
+      {
+        label: "GitHub",
+        url: "https://github.com/sandrolain",
+        color: "secondary",
+        icon: faGithub,
+      },
+      {
+        label: "FullstackDeveloper.it",
+        url: "https://www.fullstackdeveloper.it",
+        color: "success",
+        icon: faGlobe,
+      },
+    ],
+  },
 };
 
 // --- SKILLS DATA ---
-export const skills: Record<string, Skill[]> = {
-  frontend: [
-    { name: "React", level: 3 },
-    { name: "Angular 2+", level: 4 },
-    { name: "LitElement", level: 4 },
-    { name: "Flutter", level: 3 },
-    { name: "VueJS", level: 1 },
-    { name: "SvelteJS", level: 1 },
-    { name: "JavaScript", level: 4 },
-    { name: "TypeScript", level: 4 },
-    { name: "DOM", level: 4 },
-    { name: "CSS", level: 4 },
-    { name: "HTML", level: 4 },
-    { name: "Bootstrap", level: 2 },
-    { name: "Angular js", level: 3 },
-    { name: "Jquery", level: 2 },
-    { name: "MDX", level: 3 },
-    { name: "Markdown", level: 3 },
-  ],
-  backend: [
-    { name: "NodeJS", level: 3 },
-    { name: "NestJS", level: 3 },
-    { name: "GoLang", level: 4 },
-    { name: "Java", level: 1 },
-    { name: "Rust", level: 1 },
-    { name: "PHP 5+", level: 3 },
-    { name: "MySQL", level: 3 },
-    { name: "MongoDB", level: 3 },
-    { name: "Redis", level: 2 },
-    { name: "Memcached", level: 3 },
-    { name: "SQL", level: 3 },
-    { name: "Kafka", level: 1 },
-    { name: "MQTT", level: 3 },
-    { name: "TCP Modbus", level: 3 },
-    { name: "OpenTherm", level: 3 },
-    { name: "JSON", level: 4 },
-    { name: "YAML", level: 3 },
-    { name: "JSON Schema", level: 3 },
-    { name: "OpenAPI", level: 3 },
-    { name: "TOTP", level: 3 },
-    { name: "JWT", level: 3 },
-  ],
-  devops: [
-    { name: "AWS", level: 3 },
-    { name: "Docker", level: 3 },
-    { name: "Kubernetes", level: 4 },
-    { name: "HELM", level: 2 },
-    { name: "Terraform", level: 3 },
-    { name: "Jenkins", level: 3 },
-    { name: "Jenkinsfile", level: 3 },
-    { name: "Apache", level: 3 },
-    { name: "Nginx", level: 3 },
-    { name: ".env", level: 3 },
-    { name: "Editorconfig", level: 3 },
-    { name: "Eslint", level: 3 },
-    { name: "Shell script", level: 2 },
-    { name: "SemVer", level: 3 },
-    { name: "QRcode", level: 3 },
-    { name: "Mermaid", level: 3, url: "https://mermaid.js.org/" },
-  ],
-  altro: [
-    { name: "Flutter", level: 3 },
-    { name: "TOTP", level: 3 },
-    { name: "JWT", level: 3 },
-  ],
-};
+export const skills: { name: string; items: Skill[] }[] = [
+  {
+    name: "Frontend",
+    items: [
+      { name: "HTML5+", level: 3 },
+      { name: "CSS", level: 3 },
+      { name: "SASS", level: 3 },
+      { name: "LESS", level: 3 },
+      { name: "TypeScript", level: 3 },
+      { name: "ES6", level: 3 },
+      { name: "JavaScript", level: 4 },
+      { name: "DOM", level: 4 },
+      { name: "UI/UX design", level: 3 },
+      { name: "Responsive design", level: 3 },
+      { name: "Bootstrap", level: 2 },
+      { name: "LitElement", level: 3 },
+      { name: "Web Components", level: 3 },
+      { name: "Angular", level: 3 },
+      { name: "Angular js", level: 3 },
+      { name: "React", level: 3 },
+      { name: "VueJS", level: 1 },
+      { name: "SvelteJS", level: 1 },
+      { name: "Jquery", level: 2 },
+      { name: "MDX", level: 3 },
+      { name: "Markdown", level: 3 },
+    ],
+  },
+  {
+    name: "Backend & API",
+    items: [
+      { name: "NodeJS", level: 3 },
+      { name: "GoLang", level: 3 },
+      { name: "PHP 6+", level: 3 },
+      { name: "PHP 5+", level: 3 },
+      { name: "NestJS", level: 3 },
+      { name: "Java", level: 1 },
+      { name: "Rust", level: 1 },
+      { name: "Regular expressions", level: 3 },
+      { name: "Data extraction", level: 3 },
+      { name: "HTTP", level: 3 },
+      { name: "gRPC", level: 3 },
+      { name: "MQTT", level: 3 },
+      { name: "WebSocket (WS)", level: 3 },
+      { name: "TCP", level: 3 },
+      { name: "UDP", level: 3 },
+      { name: "TCP Modbus", level: 3 },
+      { name: "OpenTherm", level: 3 },
+      { name: "MySQL", level: 3 },
+      { name: "PostgreSQL", level: 3 },
+      { name: "MongoDB", level: 3 },
+      { name: "Memcached", level: 3 },
+      { name: "SQL", level: 3 },
+      { name: "YAML", level: 3 },
+      { name: "JSON", level: 4 },
+      { name: "OpenAPI", level: 2 },
+      { name: "Swagger", level: 2 },
+      { name: "JSON Schema", level: 2 },
+      { name: "Kafka", level: 2 },
+      { name: "Kafka", level: 1 },
+      { name: "NATS", level: 2 },
+      { name: "Redis", level: 2 },
+      { name: "Redis", level: 2 },
+      { name: "TOTP", level: 3 },
+      { name: "JWT", level: 3 },
+    ],
+  },
+  {
+    name: "Mobile & Desktop",
+    items: [
+      { name: "Flutter", level: 3 },
+      { name: "Flutter", level: 2 },
+      { name: "Dart", level: 2 },
+      { name: "React Native", level: 1 },
+      { name: "NativeScript", level: 1 },
+      { name: "Wails", level: 2 },
+    ],
+  },
+  {
+    name: "DevOps & Cloud",
+    items: [
+      { name: "Kubernetes", level: 4 },
+      { name: "Kubernetes", level: 3 },
+      { name: "Docker", level: 3 },
+      { name: "AWS", level: 3 },
+      { name: "AWS", level: 2 },
+      { name: "GCP", level: 2 },
+      { name: "Terraform", level: 1 },
+      { name: "CloudFormation", level: 1 },
+      { name: "ArgoCD", level: 3 },
+      { name: "GitOps", level: 3 },
+      { name: "Jenkins", level: 3 },
+      { name: "Jenkinsfile", level: 3 },
+      { name: "CI/CD (Jenkins, GitLab, GitHub, Netlify)", level: 3 },
+      { name: "HELM", level: 2 },
+      { name: "Apache", level: 3 },
+      { name: "Nginx", level: 3 },
+      { name: ".env", level: 3 },
+      { name: "Editorconfig", level: 3 },
+      { name: "Eslint", level: 3 },
+      { name: "Shell script", level: 2 },
+      { name: "SemVer", level: 3 },
+      { name: "QRcode", level: 3 },
+      { name: "Mermaid", level: 3, url: "https://mermaid.js.org/" },
+    ],
+  },
+  {
+    name: "Security",
+    items: [
+      { name: "Secure Coding", level: 3 },
+      { name: "DevSecOps", level: 3 },
+      { name: "Security Operations", level: 2 },
+      { name: "TOTP", level: 3 },
+      { name: "JWT", level: 3 },
+      { name: "mTLS", level: 2 },
+      { name: "OAuth2/OIDC", level: 2 },
+      { name: "Cifratura", level: 2 },
+    ],
+  },
+  {
+    name: "Testing & Quality",
+    items: [
+      { name: "Mocha", level: 3 },
+      { name: "Jest", level: 3 },
+      { name: "Cypress", level: 3 },
+      { name: "Playwright", level: 3 },
+      { name: "Webdriver", level: 3 },
+    ],
+  },
+  {
+    name: "Tools & Workflow",
+    items: [
+      { name: "GIT", level: 3 },
+      { name: "Bitbucket", level: 3 },
+      { name: "Jira", level: 3 },
+      { name: "Github", level: 3 },
+      { name: "GitLab", level: 3 },
+      { name: "Prompt Engineering", level: 2 },
+    ],
+  },
+];
 
-export const description = {
+// --- SOFT SKILLS DATA ---
+export const softSkills: Skill[] = [
+  { name: "Proactive troubleshooting & problem solving", level: 1 },
+  { name: "Optimization of development processes", level: 1 },
+  { name: "Team work & stakeholder collaboration", level: 1 },
+  { name: "Analysis of project requirements", level: 1 },
+  { name: "Customer Support", level: 1 },
+  { name: "Document redaction (Docs, ADR, RFC, …)", level: 1 },
+  { name: "Tests lists & reports redaction", level: 1 },
+];
+
+export const descriptionLangs: LangData<() => JSX.Element> = {
   it: () => (
-    <div class="description">
+    <div className="description">
       <p>
-        👋 Sono un Cloud Engineer e sviluppatore fullstack con oltre 18 anni di
-        esperienza nello sviluppo di applicazioni web, architetture cloud e
-        soluzioni dati scalabili e sicure.
+        👋 Sono un Cloud Engineer e sviluppatore fullstack con oltre {years}
+        anni di esperienza nello sviluppo di applicazioni web, architetture
+        cloud e soluzioni dati scalabili e sicure.
       </p>
       <p>
         Lavoro su sistemi cloud-native, automazione DevOps e sviluppo
@@ -186,9 +311,9 @@ export const description = {
     </div>
   ),
   en: () => (
-    <div class="description">
-      👋 I am a Cloud Engineer and fullstack developer with over 18 years of
-      experience in developing web applications, cloud architectures, and
+    <div className="description">
+      👋 I am a Cloud Engineer and fullstack developer with over {years} years
+      of experience in developing web applications, cloud architectures, and
       scalable, secure data solutions.
       <br />
       I work on cloud-native systems, DevOps automation, and end-to-end
@@ -290,5 +415,33 @@ export const coursesProfiles = [
     name: "Creedly Profile",
     url: "https://www.credly.com/users/sandro-lain/badges#credly",
     description: "My Creedly profile with archived courses and skills",
+  },
+];
+
+// --- WORK HISTORY DATA ---
+export const workHistory = [
+  {
+    company: "M31",
+    period: "2023 – now",
+    location: "Padua",
+    role: "Senior Cloud Engineer (SPAs, µSVCs, K8S)",
+  },
+  {
+    company: "XTN Cognitive Security",
+    period: "2019 – 2023",
+    location: "Padua",
+    role: "Senior Web Devel. (SPAs, webSDKs, µSVCs)",
+  },
+  {
+    company: "Jiki",
+    period: "2013 – 2019",
+    location: "Rovigo",
+    role: "Associate - CTO",
+  },
+  {
+    company: "Self-employed",
+    period: "2008 – 2013",
+    location: "Home",
+    role: "Websites and CMS developer",
   },
 ];
