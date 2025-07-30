@@ -11,7 +11,7 @@ import {
   Link,
 } from "@heroui/react";
 import Tilt from "react-parallax-tilt";
-import photo from "./assets/photo.jpg";
+import photo from "./assets/avatar-tron.jpg";
 import Bg from "./Bg";
 import {
   certifications,
@@ -19,6 +19,7 @@ import {
   descriptionLangs,
   profileLangs,
   skills,
+  softSkills,
   tiltProps,
   workHistory,
   type LangData,
@@ -36,12 +37,14 @@ const titles: LangData<Record<string, string>> = {
     knowledge: "Conoscenze e Certificazioni",
     education: "Istruzione",
     skills: "Competenze",
+    softSkills: "Soft Skills",
   },
   en: {
     experience: "Work Experience",
     knowledge: "Knowledge and Certifications",
     education: "Education",
     skills: "Skills",
+    softSkills: "Soft Skills",
   },
 };
 
@@ -52,52 +55,65 @@ function App() {
   return (
     <HeroUIProvider>
       <Bg />
-      <div className="container mx-auto max-w-5xl flex flex-col gap-4 p-4 position-relative z-10">
-        <Tilt {...tiltProps}>
-          <Card className="glass">
-            <CardHeader className="px-8 py-4">
-              <Avatar
-                src={photo}
-                alt="Sandro Lain"
-                size="lg"
-                className="w-32 h-32"
-                radius="full"
-              />
-              <div className="flex flex-col  ml-4">
-                <h1 className="text-4xl font-thin m-0">{profile.name}</h1>
-                <div className="text-lg">{profile.title}</div>
-                <div>
-                  <Link
-                    href={profile.locationUrl}
-                    color="foreground"
-                    target="_blank"
-                  >
-                    {profile.location}
-                  </Link>
-                </div>
-                <div className="text-md text-gray-400">{profile.avocation}</div>
-                <div className="flex flex-wrap mt-2 gap-4">
-                  {profile.socials.map((s) => (
-                    <Link
-                      key={s.label}
-                      href={s.url}
-                      target="_blank"
-                      color={s.color}
-                      size="md"
-                    >
-                      <FontAwesomeIcon icon={s.icon} className="mr-1" />
-                      {s.label}
-                    </Link>
-                  ))}
-                </div>
-              </div>
-            </CardHeader>
-            <Divider />
-            <CardBody className="px-8 py-4">{profile.headline}</CardBody>
-            <Divider />
-            <CardBody className="px-8 py-4">{description}</CardBody>
-          </Card>
-        </Tilt>
+      <div className="mx-auto max-w-5xl  p-4 ">
+        <div className="h-[100vh]">
+          <div className="sticky top-10 z-10">
+            <Tilt {...{ ...tiltProps, glareColor: commonColors.blue[400] }}>
+              <Card
+                className="glass"
+                style={
+                  {
+                    "--reflex-color": commonColors.blue[400],
+                  } as React.CSSProperties
+                }
+              >
+                <CardHeader className="px-8 py-4">
+                  <Avatar
+                    src={photo}
+                    alt="Sandro Lain"
+                    size="lg"
+                    className="w-32 h-32 border-2 border-cyan-500"
+                    radius="full"
+                  />
+                  <div className="flex flex-col  ml-4">
+                    <h1 className="text-4xl font-thin m-0">{profile.name}</h1>
+                    <div className="text-lg">{profile.title}</div>
+                    <div>
+                      <Link
+                        href={profile.locationUrl}
+                        color="foreground"
+                        target="_blank"
+                      >
+                        {profile.location}
+                      </Link>
+                    </div>
+                    <div className="text-md text-gray-400">
+                      {profile.avocation}
+                    </div>
+                    <div className="flex flex-wrap mt-2 gap-4">
+                      {profile.socials.map((s) => (
+                        <Link
+                          key={s.label}
+                          href={s.url}
+                          target="_blank"
+                          color={s.color}
+                          size="md"
+                        >
+                          <FontAwesomeIcon icon={s.icon} className="mr-1" />
+                          {s.label}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                </CardHeader>
+                <Divider />
+                <CardBody className="px-8 py-4">{profile.headline}</CardBody>
+                <Divider />
+                <CardBody className="px-8 py-4">{description}</CardBody>
+              </Card>
+            </Tilt>
+          </div>
+        </div>
 
         <Section
           title={titles[lang].experience}
@@ -119,6 +135,23 @@ function App() {
               </AccordionItem>
             ))}
           </Accordion>
+        </Section>
+
+        {/* --- Soft Skills Section --- */}
+        <Section
+          title={titles[lang].softSkills}
+          reflexColor={commonColors.cyan[500]}
+          glareColor={commonColors.cyan[300]}
+        >
+          <div className="flex flex-col gap-4">
+            <ul>
+              {softSkills[lang].map((skill) => (
+                <li key={skill.name}>
+                  <h3 className="text-lg font-semibold">{skill.name}</h3>
+                </li>
+              ))}
+            </ul>
+          </div>
         </Section>
 
         {/* --- Skills Section --- */}

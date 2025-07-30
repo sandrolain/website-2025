@@ -14,7 +14,7 @@ export type LangData<T> = Record<Language, T>;
 
 export const tiltProps = {
   tiltEnable: true,
-  tiltMaxAngleX: 10,
+  tiltMaxAngleX: 5,
   tiltMaxAngleY: 5,
   glareEnable: true,
   glareMaxOpacity: 0.2,
@@ -255,15 +255,26 @@ export const skills: { name: string; items: Skill[] }[] = [
 ];
 
 // --- SOFT SKILLS DATA ---
-export const softSkills: Skill[] = [
-  { name: "Proactive troubleshooting & problem solving", level: 1 },
-  { name: "Optimization of development processes", level: 1 },
-  { name: "Team work & stakeholder collaboration", level: 1 },
-  { name: "Analysis of project requirements", level: 1 },
-  { name: "Customer Support", level: 1 },
-  { name: "Document redaction (Docs, ADR, RFC, …)", level: 1 },
-  { name: "Tests lists & reports redaction", level: 1 },
-];
+export const softSkills: LangData<Skill[]> = {
+  it: [
+    { name: "Risoluzione proattiva dei problemi", level: 1 },
+    { name: "Ottimizzazione dei processi di sviluppo", level: 1 },
+    { name: "Lavoro in team e collaborazione con stakeholder", level: 1 },
+    { name: "Analisi dei requisiti di progetto", level: 1 },
+    { name: "Supporto al cliente", level: 1 },
+    { name: "Redazione documentale (Docs, ADR, RFC, …)", level: 1 },
+    { name: "Redazione liste test e report", level: 1 },
+  ],
+  en: [
+    { name: "Proactive troubleshooting & problem solving", level: 1 },
+    { name: "Optimization of development processes", level: 1 },
+    { name: "Team work & stakeholder collaboration", level: 1 },
+    { name: "Analysis of project requirements", level: 1 },
+    { name: "Customer Support", level: 1 },
+    { name: "Document redaction (Docs, ADR, RFC, …)", level: 1 },
+    { name: "Tests lists & reports redaction", level: 1 },
+  ],
+};
 
 export const descriptionLangs: LangData<() => JSX.Element> = {
   it: () => (
