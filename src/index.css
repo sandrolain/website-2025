@@ -6,6 +6,7 @@
 
 :root {
   --reflex-color: #ffffff;
+  --section-radius: 0;
 }
 
 .glass {
@@ -20,14 +21,17 @@
       var(--color-2),
       var(--color)
     ),
-    rgba(0, 0, 0, 0.7);
+    rgba(0, 0, 0, 0.8);
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3) inset,
     0 0px 10px rgba(0, 0, 0, 0.5), 0 0px 30px rgba(0, 0, 0, 1);
-  border-radius: 0;
+  border-radius: var(--section-radius);
+}
+.glass.glass-circle {
+  border-radius: 50%;
 }
 
 .glare-wrapper {
-  border-radius: 0 !important;
+  border-radius: var(--section-radius) !important;
 }
 
 .glass::after {
@@ -53,6 +57,9 @@
   mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
   pointer-events: none;
+}
+.glass.glass-circle::after {
+  border-radius: 50%;
 }
 
 .description {

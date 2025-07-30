@@ -1,39 +1,30 @@
 import type { Skill } from "./data";
-import { Section } from "./Section";
 
 export interface SkillListProps {
-  title: string;
   skills: Skill[];
   color: string;
 }
 
-const SkillList = ({ title, skills, color }: SkillListProps) => (
-  <Section
-    title={title}
-    reflexColor={color}
-    glareColor={color}
-    tiltEnable={false}
+const SkillList = ({ skills, color }: SkillListProps) => (
+  <ul
+    className="columns-3 gap-20 text-xs whitespace-nowrap"
+    style={{ "--level-color": color } as React.CSSProperties}
   >
-    <ul
-      className="columns-3 gap-20 text-xs whitespace-nowrap"
-      style={{ "--level-color": color } as React.CSSProperties}
-    >
-      {skills.map((skill) => (
-        <li key={skill.name} className="flex items-center justify-between">
-          <span>
-            {skill.url ? (
-              <a href={skill.url} target="_blank">
-                {skill.name}
-              </a>
-            ) : (
-              skill.name
-            )}
-          </span>
-          {skillLevelBox(skill.level)}
-        </li>
-      ))}
-    </ul>
-  </Section>
+    {skills.map((skill) => (
+      <li key={skill.name} className="flex items-center justify-between">
+        <span>
+          {skill.url ? (
+            <a href={skill.url} target="_blank">
+              {skill.name}
+            </a>
+          ) : (
+            skill.name
+          )}
+        </span>
+        {skillLevelBox(skill.level)}
+      </li>
+    ))}
+  </ul>
 );
 
 export default SkillList;

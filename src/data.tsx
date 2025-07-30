@@ -109,21 +109,39 @@ export const profileLangs: LangData<Profile> = {
 };
 
 // --- SKILLS DATA ---
+// --- SKILLS DATA ---
 export const skills: { name: string; items: Skill[] }[] = [
   {
-    name: "Frontend",
+    name: "Languages & Fundamentals",
+    items: [
+      { name: "JavaScript", level: 4 },
+      { name: "TypeScript", level: 3 },
+      { name: "ES6", level: 3 },
+      { name: "Dart", level: 2 },
+      { name: "GoLang", level: 3 },
+      { name: "Rust", level: 1 },
+      { name: "Java", level: 1 },
+      { name: "PHP 6+", level: 3 },
+      { name: "PHP 5+", level: 3 },
+      { name: "SQL", level: 3 },
+      { name: "YAML", level: 3 },
+      { name: "JSON", level: 4 },
+      { name: "Markdown", level: 3 },
+      { name: "MDX", level: 3 },
+      { name: "Regular expressions", level: 3 },
+    ],
+  },
+  {
+    name: "Frontend & UI",
     items: [
       { name: "HTML5+", level: 3 },
       { name: "CSS", level: 3 },
       { name: "SASS", level: 3 },
       { name: "LESS", level: 3 },
-      { name: "TypeScript", level: 3 },
-      { name: "ES6", level: 3 },
-      { name: "JavaScript", level: 4 },
+      { name: "Bootstrap", level: 2 },
       { name: "DOM", level: 4 },
       { name: "UI/UX design", level: 3 },
       { name: "Responsive design", level: 3 },
-      { name: "Bootstrap", level: 2 },
       { name: "LitElement", level: 3 },
       { name: "Web Components", level: 3 },
       { name: "Angular", level: 3 },
@@ -132,21 +150,13 @@ export const skills: { name: string; items: Skill[] }[] = [
       { name: "VueJS", level: 1 },
       { name: "SvelteJS", level: 1 },
       { name: "Jquery", level: 2 },
-      { name: "MDX", level: 3 },
-      { name: "Markdown", level: 3 },
     ],
   },
   {
-    name: "Backend & API",
+    name: "Backend, API & Integration",
     items: [
       { name: "NodeJS", level: 3 },
-      { name: "GoLang", level: 3 },
-      { name: "PHP 6+", level: 3 },
-      { name: "PHP 5+", level: 3 },
       { name: "NestJS", level: 3 },
-      { name: "Java", level: 1 },
-      { name: "Rust", level: 1 },
-      { name: "Regular expressions", level: 3 },
       { name: "Data extraction", level: 3 },
       { name: "HTTP", level: 3 },
       { name: "gRPC", level: 3 },
@@ -156,44 +166,40 @@ export const skills: { name: string; items: Skill[] }[] = [
       { name: "UDP", level: 3 },
       { name: "TCP Modbus", level: 3 },
       { name: "OpenTherm", level: 3 },
-      { name: "MySQL", level: 3 },
-      { name: "PostgreSQL", level: 3 },
-      { name: "MongoDB", level: 3 },
-      { name: "Memcached", level: 3 },
-      { name: "SQL", level: 3 },
-      { name: "YAML", level: 3 },
-      { name: "JSON", level: 4 },
       { name: "OpenAPI", level: 2 },
       { name: "Swagger", level: 2 },
       { name: "JSON Schema", level: 2 },
       { name: "Kafka", level: 2 },
-      { name: "Kafka", level: 1 },
       { name: "NATS", level: 2 },
-      { name: "Redis", level: 2 },
-      { name: "Redis", level: 2 },
       { name: "TOTP", level: 3 },
       { name: "JWT", level: 3 },
+    ],
+  },
+  {
+    name: "Databases & Storage",
+    items: [
+      { name: "MySQL", level: 3 },
+      { name: "PostgreSQL", level: 3 },
+      { name: "MongoDB", level: 3 },
+      { name: "Memcached", level: 3 },
+      { name: "Redis", level: 2 },
     ],
   },
   {
     name: "Mobile & Desktop",
     items: [
       { name: "Flutter", level: 3 },
-      { name: "Flutter", level: 2 },
-      { name: "Dart", level: 2 },
       { name: "React Native", level: 1 },
       { name: "NativeScript", level: 1 },
       { name: "Wails", level: 2 },
     ],
   },
   {
-    name: "DevOps & Cloud",
+    name: "DevOps, Cloud & Automation",
     items: [
       { name: "Kubernetes", level: 4 },
-      { name: "Kubernetes", level: 3 },
       { name: "Docker", level: 3 },
       { name: "AWS", level: 3 },
-      { name: "AWS", level: 2 },
       { name: "GCP", level: 2 },
       { name: "Terraform", level: 1 },
       { name: "CloudFormation", level: 1 },
@@ -220,8 +226,6 @@ export const skills: { name: string; items: Skill[] }[] = [
       { name: "Secure Coding", level: 3 },
       { name: "DevSecOps", level: 3 },
       { name: "Security Operations", level: 2 },
-      { name: "TOTP", level: 3 },
-      { name: "JWT", level: 3 },
       { name: "mTLS", level: 2 },
       { name: "OAuth2/OIDC", level: 2 },
       { name: "Cifratura", level: 2 },
@@ -353,95 +357,311 @@ export const descriptionLangs: LangData<() => JSX.Element> = {
   ),
 };
 
-//    <a href="/coursera/Coursera-WMUAQLKE6FVE.pdf" target="_blank">
-//       Programming with Google Go
-//     </a>
-//   </li>
-//   <li>
-//     <a href="/coursera/Coursera-BSLSZH7YV2LN.pdf" target="_blank">
-//       Identifying Security Vulnerabilities
-//     </a>
-//   </li>
-//   <li>
-//     <a href="/coursera/Coursera-LMZM9SGKWEM8.pdf" target="_blank">
-//       JavaScript Security
-//     </a>
-//   </li>
-//   <li>
-//     <a href="/coursera/Coursera-WNUAWE6DFRSU.pdf" target="_blank">
-//       Principles of Secure Coding
-//     </a>
-//   </li>
-// </ul>
-// <a
-//   href="https://app.pluralsight.com/profile/sandro-lain"
-//   target="_blank"
-//   rel="noopener noreferrer"
-// >
-//   Pluralsight Profile
-// </a>
+export const certifications: LangData<
+  { name: string; url: string; description: string }[]
+> = {
+  it: [
+    {
+      name: "Programming with Google Go",
+      url: "/coursera/Coursera-WMUAQLKE6FVE.pdf",
+      description: "Corso Coursera completato sul linguaggio Go",
+    },
+    {
+      name: "Identifying Security Vulnerabilities",
+      url: "/coursera/Coursera-BSLSZH7YV2LN.pdf",
+      description:
+        "Corso Coursera completato sull'identificazione delle vulnerabilità di sicurezza",
+    },
+    {
+      name: "JavaScript Security",
+      url: "/coursera/Coursera-LMZM9SGKWEM8.pdf",
+      description: "Corso Coursera completato sulla sicurezza JavaScript",
+    },
+    {
+      name: "Principles of Secure Coding",
+      url: "/coursera/Coursera-WNUAWE6DFRSU.pdf",
+      description:
+        "Corso Coursera completato sui principi della programmazione sicura",
+    },
+  ],
+  en: [
+    {
+      name: "Programming with Google Go",
+      url: "/coursera/Coursera-WMUAQLKE6FVE.pdf",
+      description: "Coursera course completion on Go programming language",
+    },
+    {
+      name: "Identifying Security Vulnerabilities",
+      url: "/coursera/Coursera-BSLSZH7YV2LN.pdf",
+      description:
+        "Coursera course completion on identifying security vulnerabilities",
+    },
+    {
+      name: "JavaScript Security",
+      url: "/coursera/Coursera-LMZM9SGKWEM8.pdf",
+      description: "Coursera course completion on JavaScript security",
+    },
+    {
+      name: "Principles of Secure Coding",
+      url: "/coursera/Coursera-WNUAWE6DFRSU.pdf",
+      description: "Coursera course completion on principles of secure coding",
+    },
+  ],
+};
 
-export const certifications = [
-  {
-    name: "Programming with Google Go",
-    url: "/coursera/Coursera-WMUAQLKE6FVE.pdf",
-    description: "Coursera course completion on Go programming language",
-  },
-  {
-    name: "Identifying Security Vulnerabilities",
-    url: "/coursera/Coursera-BSLSZH7YV2LN.pdf",
-    description:
-      "Coursera course completion on identifying security vulnerabilities",
-  },
-  {
-    name: "JavaScript Security",
-    url: "/coursera/Coursera-LMZM9SGKWEM8.pdf",
-    description: "Coursera course completion on JavaScript security",
-  },
-  {
-    name: "Principles of Secure Coding",
-    url: "/coursera/Coursera-WNUAWE6DFRSU.pdf",
-    description: "Coursera course completion on principles of secure coding",
-  },
-];
+export const coursesProfiles: LangData<
+  { name: string; url: string; description: string }[]
+> = {
+  it: [
+    {
+      name: "Profilo Pluralsight",
+      url: "https://app.pluralsight.com/profile/sandro-lain",
+      description: "Profilo Pluralsight con corsi e competenze archiviate",
+    },
+    {
+      name: "Profilo Credly",
+      url: "https://www.credly.com/users/sandro-lain/badges#credly",
+      description: "Profilo Credly con corsi e competenze archiviate",
+    },
+  ],
+  en: [
+    {
+      name: "Pluralsight Profile",
+      url: "https://app.pluralsight.com/profile/sandro-lain",
+      description: "My Pluralsight profile with archived courses and skills",
+    },
+    {
+      name: "Creedly Profile",
+      url: "https://www.credly.com/users/sandro-lain/badges#credly",
+      description: "My Creedly profile with archived courses and skills",
+    },
+  ],
+};
 
-export const coursesProfiles = [
-  {
-    name: "Pluralsight Profile",
-    url: "https://app.pluralsight.com/profile/sandro-lain",
-    description: "My Pluralsight profile with archived courses and skills",
-  },
-  {
-    name: "Creedly Profile",
-    url: "https://www.credly.com/users/sandro-lain/badges#credly",
-    description: "My Creedly profile with archived courses and skills",
-  },
-];
+export interface WorkHistory {
+  company: string;
+  period: string;
+  location: string;
+  role: string;
+}
 
 // --- WORK HISTORY DATA ---
-export const workHistory = [
-  {
-    company: "M31",
-    period: "2023 – now",
-    location: "Padua",
-    role: "Senior Cloud Engineer (SPAs, µSVCs, K8S)",
-  },
-  {
-    company: "XTN Cognitive Security",
-    period: "2019 – 2023",
-    location: "Padua",
-    role: "Senior Web Devel. (SPAs, webSDKs, µSVCs)",
-  },
-  {
-    company: "Jiki",
-    period: "2013 – 2019",
-    location: "Rovigo",
-    role: "Associate - CTO",
-  },
-  {
-    company: "Self-employed",
-    period: "2008 – 2013",
-    location: "Home",
-    role: "Websites and CMS developer",
-  },
-];
+export const workHistory: LangData<WorkHistory[]> = {
+  it: [
+    {
+      company: "M31",
+      period: "2023 - oggi",
+      location: "Padova",
+      role: "Senior Cloud Engineer (SPAs, µSVCs, K8S)",
+    },
+    {
+      company: "XTN Cognitive Security",
+      period: "2019 - 2023",
+      location: "Padova",
+      role: "Senior Web Devel. (SPAs, webSDKs, µSVCs)",
+    },
+    {
+      company: "Jiki",
+      period: "2013 - 2019",
+      location: "Rovigo",
+      role: "Associate - CTO",
+    },
+    {
+      company: "Libero professionista",
+      period: "2008 - 2013",
+      location: "Casa",
+      role: "Sviluppatore siti web e CMS",
+    },
+  ],
+  en: [
+    {
+      company: "M31",
+      period: "2023 - now",
+      location: "Padua",
+      role: "Senior Cloud Engineer (SPAs, µSVCs, K8S)",
+    },
+    {
+      company: "XTN Cognitive Security",
+      period: "2019 - 2023",
+      location: "Padua",
+      role: "Senior Web Devel. (SPAs, webSDKs, µSVCs)",
+    },
+    {
+      company: "Jiki",
+      period: "2013 - 2019",
+      location: "Rovigo",
+      role: "Associate - CTO",
+    },
+    {
+      company: "Self-employed",
+      period: "2008 - 2013",
+      location: "Home",
+      role: "Websites and CMS developer",
+    },
+  ],
+};
+
+export interface Award {
+  year: number;
+  name: string;
+  category: string;
+  app: string;
+  url: string;
+}
+
+// --- AWARDS DATA ---
+export const awards: LangData<Award[]> = {
+  it: [
+    {
+      year: 2014,
+      name: "SMAU Mob App Awards",
+      category: "Internet of Things e Utility",
+      app: "Bertelli Remote Controller",
+      url: "https://www.smau.it/news/smau-premia-migliori-app-per-smartphone-e-tablet",
+    },
+    {
+      year: 2012,
+      name: "SMAU Mob App Awards",
+      category: "Community and Social",
+      app: "Ce l’ho te lo presto",
+      url: "https://www.smau.it/news/smau-premia-le-migliori-app-per-smartphone-e-tablet",
+    },
+  ],
+  en: [
+    {
+      year: 2014,
+      name: "SMAU Mob App Awards",
+      category: "Internet of Things and Utility",
+      app: "Bertelli Remote Controller",
+      url: "https://www.smau.it/news/smau-premia-migliori-app-per-smartphone-e-tablet",
+    },
+    {
+      year: 2012,
+      name: "SMAU Mob App Awards",
+      category: "Community and Social",
+      app: "Ce l’ho te lo presto",
+      url: "https://www.smau.it/news/smau-premia-le-migliori-app-per-smartphone-e-tablet",
+    },
+  ],
+};
+
+export interface SideProject {
+  name: string;
+  description: string;
+}
+
+// --- SIDE PROJECTS DATA ---
+export const sideProjects: LangData<SideProject[]> = {
+  it: [
+    {
+      name: "Smart Developer Tools",
+      description:
+        "Strumento multi-utility CLI / WebAssembly per l'uso quotidiano degli sviluppatori scritto in GoLang. Riduce l'uso di siti terzi che possono portare a furto di dati.",
+    },
+    {
+      name: "Event Runner",
+      description:
+        "Servizio scritto in GoLang che consente di processare eventi in ingresso (es. NATS, HTTP, gRPC) tramite una macchina virtuale javascript e inoltrarli ad altri servizi.",
+    },
+    {
+      name: "Identity",
+      description:
+        "Microservizio di autenticazione e identità come progetto di studio GoLang e sicurezza",
+    },
+    {
+      name: "Irrigate",
+      description:
+        "Esercizio/demo di architettura a microservizi, simulando un controller di irrigazione da remoto stile IoT.",
+    },
+    {
+      name: "Test Boss",
+      description:
+        "Servizio che gestisce progetti, liste test e report test (Rust + Angular)",
+    },
+  ],
+  en: [
+    {
+      name: "Smart Developer Tools",
+      description:
+        "Multi-utility CLI / WebAssembly tool for developer daily usage written in GoLang. Reduces the use of third party sites that can lead to data theft.",
+    },
+    {
+      name: "Event Runner",
+      description:
+        "Service written in GoLang that allows to process incoming events (ex. NATS, HTTP, gRPC) via a javascript virtual machine and forward them to other services.",
+    },
+    {
+      name: "Identity",
+      description:
+        "Authentication and identity microservice as GoLang and security study project",
+    },
+    {
+      name: "Irrigate",
+      description:
+        "Microservices architecture exercise/demo, simulating an IoT-like remote garden irrigation controller.",
+    },
+    {
+      name: "Test Boss",
+      description:
+        "Service that manages projects, test lists and test reports (Rust + Angular)",
+    },
+  ],
+};
+
+// --- CAREER DESCRIPTION & MAIN PROJECTS ---
+export const careerDescription: LangData<string> = {
+  it: "Durante la mia carriera ho lavorato su una varietà di progetti che spaziano da soluzioni IoT ad applicazioni di controllo remoto. Ho sviluppato architetture a microservizi, applicazioni mobile e piattaforme cloud utilizzando tecnologie come NodeJS, GoLang, Postgres, Angular, React, REST, gRPC e MQTT su cluster Kubernetes. Questi progetti hanno migliorato l'esperienza utente e ottimizzato la gestione del ciclo di vita dei dispositivi remoti.",
+  en: "Throughout my career, I have worked on a variety of projects ranging from IoT solutions to remote control applications. I have developed microservices architectures, mobile applications, and cloud platforms using technologies such as NodeJS, GoLang, Postgres, Angular, React, REST, gRPC, and MQTT on Kubernetes clusters. These projects have enhanced the user experience and optimized the lifecycle management of remote devices.",
+};
+
+export interface MainProject {
+  name: string;
+  description: string;
+}
+
+export const mainProjects: LangData<MainProject[]> = {
+  it: [
+    {
+      name: "B&P ApiFire",
+      description:
+        "Soluzione IoT Cloud per la gestione del ciclo di vita di stufe e dispositivi remoti.",
+    },
+    {
+      name: "Vimar By-Gate",
+      description:
+        "Applicazioni per la configurazione di cancelli motorizzati e controllo remoto.",
+    },
+    {
+      name: "Tour in Tasca",
+      description:
+        "Applicazioni per musei e fiere con tecnologia iBeacon e QR code.",
+    },
+    {
+      name: "Immergas Dominus",
+      description:
+        "Applicazioni per il controllo remoto e la programmazione di caldaie.",
+    },
+  ],
+  en: [
+    {
+      name: "B&P ApiFire",
+      description:
+        "IoT Cloud solution for managing the lifecycle of remote stoves.",
+    },
+    {
+      name: "Vimar By-Gate",
+      description:
+        "Applications for configuring motorized gates and remote control.",
+    },
+    {
+      name: "Tour in Tasca",
+      description:
+        "Applications for museums and fairs using iBeacon and QR code technology.",
+    },
+    {
+      name: "Immergas Dominus",
+      description:
+        "Applications for remote control and programming of boilers.",
+    },
+  ],
+};

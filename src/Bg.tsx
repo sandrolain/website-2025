@@ -8,6 +8,7 @@ import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
 //import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { commonColors } from "@heroui/react";
+import { PixelatePass } from "./PixelatePass";
 
 const Bg = () => {
   const mountRef = useRef(null);
@@ -182,10 +183,15 @@ const Bg = () => {
 
     const bloomPass = new UnrealBloomPass(
       new THREE.Vector2(window.innerWidth, window.innerHeight),
-      10,
+      6,
       1,
       0
     );
+
+    // Pixelate pass
+    const pixelatePass = new PixelatePass(scene, camera, 6); // pixel size 4
+    pixelatePass.setSize(sizes.width, sizes.height);
+    effectComposer.addPass(pixelatePass);
 
     effectComposer.addPass(bloomPass);
 
@@ -206,6 +212,7 @@ const Bg = () => {
 
       effectComposer.setSize(sizes.width, sizes.height);
       effectComposer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      pixelatePass.setSize(sizes.width, sizes.height);
     });
 
     // Animation

@@ -1,4 +1,6 @@
 import {
+  Accordion,
+  AccordionItem,
   Avatar,
   Card,
   CardBody,
@@ -19,6 +21,7 @@ import {
   skills,
   tiltProps,
   workHistory,
+  type LangData,
   type Language,
 } from "./data";
 import SkillList from "./SkillsList";
@@ -27,6 +30,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const lang: Language = "it";
 
+const titles: LangData<Record<string, string>> = {
+  it: {
+    experience: "Esperienza lavorativa",
+    knowledge: "Conoscenze e Certificazioni",
+    education: "Istruzione",
+    skills: "Competenze",
+  },
+  en: {
+    experience: "Work Experience",
+    knowledge: "Knowledge and Certifications",
+    education: "Education",
+    skills: "Skills",
+  },
+};
+
 function App() {
   const profile = profileLangs[lang];
   const description = descriptionLangs[lang]();
@@ -34,7 +52,7 @@ function App() {
   return (
     <HeroUIProvider>
       <Bg />
-      <div className="container mx-auto max-w-4xl flex flex-col gap-4 p-4 position-relative z-10">
+      <div className="container mx-auto max-w-5xl flex flex-col gap-4 p-4 position-relative z-10">
         <Tilt {...tiltProps}>
           <Card className="glass">
             <CardHeader className="px-8 py-4">
@@ -82,39 +100,58 @@ function App() {
         </Tilt>
 
         <Section
-          title="Esperienza lavorativa"
+          title={titles[lang].experience}
           reflexColor={commonColors.yellow[500]}
           glareColor={commonColors.yellow[300]}
         >
-          <div className="grid grid-cols-2 gap-4">
-            {workHistory.map((job) => (
-              <Section
+          <Accordion variant="splitted">
+            {workHistory[lang].map((job) => (
+              <AccordionItem
                 key={job.company}
                 title={job.company}
-                reflexColor={commonColors.yellow[500]}
-                glareColor={commonColors.yellow[300]}
-                tiltEnable={false}
+                className="glass cursor-pointer"
               >
                 <div className="flex flex-col gap-2">
                   <h3 className="text-lg font-semibold">{job.role}</h3>
                   <p className="text-sm text-gray-300">{job.location}</p>
                   <div className="text-xs text-gray-400">{job.period}</div>
                 </div>
-              </Section>
+              </AccordionItem>
             ))}
-            ù
-          </div>
+          </Accordion>
+        </Section>
+
+        {/* --- Skills Section --- */}
+        <Section
+          title={titles[lang].skills}
+          reflexColor={commonColors.purple[500]}
+          glareColor={commonColors.purple[300]}
+        >
+          <Accordion variant="splitted">
+            {skills.map((skill) => (
+              <AccordionItem
+                key={skill.name}
+                title={skill.name}
+                className="glass cursor-pointer"
+              >
+                <SkillList
+                  skills={skill.items}
+                  color={commonColors.pink[500]}
+                />
+              </AccordionItem>
+            ))}
+          </Accordion>
         </Section>
 
         <Section
-          title="Knowledge and Certifications"
+          title={titles[lang].knowledge}
           reflexColor={commonColors.green[500]}
           glareColor={commonColors.green[300]}
         >
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
               <h3 className="text-lg font-semibold">Corsi</h3>
-              {coursesProfiles.map((cert) => (
+              {coursesProfiles[lang].map((cert) => (
                 <div key={cert.name}>
                   <Link
                     href={cert.url}
@@ -130,7 +167,7 @@ function App() {
             </div>
             <div className="flex flex-col gap-1">
               <h3 className="text-lg font-semibold">Certificazioni</h3>
-              {certifications.map((cert) => (
+              {certifications[lang].map((cert) => (
                 <div key={cert.name}>
                   <Link
                     href={cert.url}
@@ -144,24 +181,6 @@ function App() {
                 </div>
               ))}
             </div>
-          </div>
-        </Section>
-
-        {/* --- Skills Section --- */}
-        <Section
-          title="Skills and Expertise"
-          reflexColor={commonColors.purple[500]}
-          glareColor={commonColors.purple[300]}
-        >
-          <div className="flex flex-col gap-4">
-            {skills.map((skill) => (
-              <SkillList
-                key={skill.name}
-                title={skill.name}
-                skills={skill.items}
-                color={commonColors.pink[500]}
-              />
-            ))}
           </div>
         </Section>
       </div>
