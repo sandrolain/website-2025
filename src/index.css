@@ -4,9 +4,34 @@
 @source '../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}';
 @custom-variant dark (&:is(.dark *));
 
+@import "../node_modules/bootstrap-icons/font/bootstrap-icons.css";
+
+@import url("https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap");
+
 :root {
   --reflex-color: #ffffff;
   --section-radius: 0;
+  --title-font: "Orbitron", sans-serif;
+  --text-font: "Exo 2", sans-serif;
+}
+
+p,
+li {
+  font-family: var(--text-font) !important;
+}
+
+.title-font {
+  font-family: var(--title-font);
+}
+
+.text-font {
+  font-family: var(--text-font);
+}
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: var(--text-font);
 }
 
 .glass {

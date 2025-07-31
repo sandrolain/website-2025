@@ -9,6 +9,7 @@ import {
   Divider,
   HeroUIProvider,
   Link,
+  type AccordionProps,
 } from "@heroui/react";
 import Tilt from "react-parallax-tilt";
 import photo from "./assets/avatar-tron.jpg";
@@ -17,6 +18,7 @@ import {
   certifications,
   coursesProfiles,
   descriptionLangs,
+  education,
   profileLangs,
   skills,
   softSkills,
@@ -48,6 +50,12 @@ const titles: LangData<Record<string, string>> = {
   },
 };
 
+const accordionProps: Partial<AccordionProps> = {
+  variant: "splitted",
+  selectionMode: "multiple",
+  selectionBehavior: "toggle",
+};
+
 function App() {
   const profile = profileLangs[lang];
   const description = descriptionLangs[lang]();
@@ -56,80 +64,84 @@ function App() {
     <HeroUIProvider>
       <Bg />
       <div className="mx-auto max-w-5xl  p-4 ">
-        <div className="h-[100vh]">
-          <div className="sticky top-10 z-10">
-            <Tilt {...{ ...tiltProps, glareColor: commonColors.blue[400] }}>
-              <Card
-                className="glass"
-                style={
-                  {
-                    "--reflex-color": commonColors.blue[400],
-                  } as React.CSSProperties
-                }
-              >
-                <CardHeader className="px-8 py-4">
-                  <Avatar
-                    src={photo}
-                    alt="Sandro Lain"
-                    size="lg"
-                    className="w-32 h-32 border-2 border-cyan-500"
-                    radius="full"
-                  />
-                  <div className="flex flex-col  ml-4">
-                    <h1 className="text-4xl font-thin m-0">{profile.name}</h1>
-                    <div className="text-lg">{profile.title}</div>
-                    <div>
-                      <Link
-                        href={profile.locationUrl}
-                        color="foreground"
-                        target="_blank"
-                      >
-                        {profile.location}
-                      </Link>
-                    </div>
-                    <div className="text-md text-gray-400">
-                      {profile.avocation}
-                    </div>
-                    <div className="flex flex-wrap mt-2 gap-4">
-                      {profile.socials.map((s) => (
+        <div className="min-h-[100vh]">
+          <div className="sticky top-0 z-10 flex min-h-[100vh] items-center justify-center">
+            <div className="sticky top-10 z-10">
+              <Tilt {...{ ...tiltProps, glareColor: commonColors.blue[400] }}>
+                <Card
+                  className="glass"
+                  style={
+                    {
+                      "--reflex-color": commonColors.blue[400],
+                    } as React.CSSProperties
+                  }
+                >
+                  <CardHeader className="px-8 py-4">
+                    <Avatar
+                      src={photo}
+                      alt="Sandro Lain"
+                      size="lg"
+                      className="w-32 h-32 border-2 border-cyan-500"
+                      radius="full"
+                    />
+                    <div className="flex flex-col  ml-4">
+                      <h1 className="text-4xl font-thin m-0">{profile.name}</h1>
+                      <div className="text-lg">{profile.title}</div>
+                      <div>
                         <Link
-                          key={s.label}
-                          href={s.url}
+                          href={profile.locationUrl}
+                          color="foreground"
                           target="_blank"
-                          color={s.color}
-                          size="md"
                         >
-                          <FontAwesomeIcon icon={s.icon} className="mr-1" />
-                          {s.label}
+                          {profile.location}
                         </Link>
-                      ))}
+                      </div>
+                      <div className="text-md text-gray-400">
+                        {profile.avocation}
+                      </div>
+                      <div className="flex flex-wrap mt-2 gap-4">
+                        {profile.socials.map((s) => (
+                          <Link
+                            key={s.label}
+                            href={s.url}
+                            target="_blank"
+                            color={s.color}
+                            size="md"
+                          >
+                            <FontAwesomeIcon icon={s.icon} className="mr-1" />
+                            {s.label}
+                          </Link>
+                        ))}
+                      </div>
                     </div>
-                  </div>
-                </CardHeader>
-                <Divider />
-                <CardBody className="px-8 py-4">{profile.headline}</CardBody>
-                <Divider />
-                <CardBody className="px-8 py-4">{description}</CardBody>
-              </Card>
-            </Tilt>
+                  </CardHeader>
+                  <Divider />
+                  <CardBody className="px-8 py-4">{profile.headline}</CardBody>
+                  <Divider />
+                  <CardBody className="px-8 py-4">{description}</CardBody>
+                </Card>
+              </Tilt>
+            </div>
           </div>
         </div>
 
+        {/* --- Work Experience Section --- */}
+
         <Section
+          icon="bi bi-briefcase"
           title={titles[lang].experience}
           reflexColor={commonColors.yellow[500]}
-          glareColor={commonColors.yellow[300]}
+          glareColor={commonColors.yellow[500]}
         >
-          <Accordion variant="splitted">
+          <Accordion {...accordionProps}>
             {workHistory[lang].map((job) => (
               <AccordionItem
                 key={job.company}
                 title={job.company}
+                subtitle={job.role}
                 className="glass cursor-pointer"
               >
                 <div className="flex flex-col gap-2">
-                  <h3 className="text-lg font-semibold">{job.role}</h3>
-                  <p className="text-sm text-gray-300">{job.location}</p>
                   <div className="text-xs text-gray-400">{job.period}</div>
                 </div>
               </AccordionItem>
@@ -138,29 +150,34 @@ function App() {
         </Section>
 
         {/* --- Soft Skills Section --- */}
+
         <Section
+          icon="bi bi-people"
           title={titles[lang].softSkills}
           reflexColor={commonColors.cyan[500]}
-          glareColor={commonColors.cyan[300]}
+          glareColor={commonColors.cyan[500]}
         >
-          <div className="flex flex-col gap-4">
-            <ul>
-              {softSkills[lang].map((skill) => (
-                <li key={skill.name}>
-                  <h3 className="text-lg font-semibold">{skill.name}</h3>
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Accordion {...accordionProps}>
+            {softSkills[lang].map((skill) => (
+              <AccordionItem
+                key={skill.name}
+                title={skill.name}
+                className="glass cursor-pointer"
+              >
+                {skill.description}
+              </AccordionItem>
+            ))}
+          </Accordion>
         </Section>
 
         {/* --- Skills Section --- */}
         <Section
+          icon="bi bi-tools"
           title={titles[lang].skills}
           reflexColor={commonColors.purple[500]}
-          glareColor={commonColors.purple[300]}
+          glareColor={commonColors.purple[500]}
         >
-          <Accordion variant="splitted">
+          <Accordion {...accordionProps}>
             {skills.map((skill) => (
               <AccordionItem
                 key={skill.name}
@@ -176,10 +193,13 @@ function App() {
           </Accordion>
         </Section>
 
+        {/* --- Certifications Section --- */}
+
         <Section
+          icon="bi bi-award"
           title={titles[lang].knowledge}
           reflexColor={commonColors.green[500]}
-          glareColor={commonColors.green[300]}
+          glareColor={commonColors.green[500]}
         >
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
@@ -216,6 +236,29 @@ function App() {
             </div>
           </div>
         </Section>
+
+        {/* --- Education Section --- */}
+
+        <Section
+          icon="bi bi-mortarboard"
+          title={titles[lang].education}
+          reflexColor={commonColors.cyan[500]}
+          glareColor={commonColors.cyan[500]}
+        >
+          <div className="flex flex-col gap-4">
+            <ul className="columns-2 gap-8 text-sm">
+              {education[lang].map((edu) => (
+                <li key={edu.institution}>
+                  <h3 className="text-lg font-semibold">{edu.degree}</h3>
+                  <p className="text-sm text-gray-300">{edu.institution}</p>
+                  <div className="text-xs text-gray-400">{edu.period}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </Section>
+
+        {/* --- Footer --- */}
       </div>
     </HeroUIProvider>
   );

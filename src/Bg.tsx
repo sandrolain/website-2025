@@ -191,7 +191,7 @@ const Bg = () => {
     // Pixelate pass
     const pixelatePass = new PixelatePass(scene, camera, 6); // pixel size 4
     pixelatePass.setSize(sizes.width, sizes.height);
-    effectComposer.addPass(pixelatePass);
+    //effectComposer.addPass(pixelatePass);
 
     effectComposer.addPass(bloomPass);
 
@@ -264,7 +264,7 @@ const Bg = () => {
         top: 0,
         left: 0,
         outline: "none",
-        zIndex: -1,
+        zIndex: 0,
       }}
     ></canvas>
   );

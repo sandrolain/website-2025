@@ -27,6 +27,7 @@ export interface Skill {
   name: string;
   level: number;
   url?: string; // Optional URL for skills that have a link
+  description?: string; // Optional description for skills
 }
 
 export interface Profile {
@@ -257,22 +258,92 @@ export const skills: { name: string; items: Skill[] }[] = [
 // --- SOFT SKILLS DATA ---
 export const softSkills: LangData<Skill[]> = {
   it: [
-    { name: "Risoluzione proattiva dei problemi", level: 1 },
-    { name: "Ottimizzazione dei processi di sviluppo", level: 1 },
-    { name: "Lavoro in team e collaborazione con stakeholder", level: 1 },
-    { name: "Analisi dei requisiti di progetto", level: 1 },
-    { name: "Supporto al cliente", level: 1 },
-    { name: "Redazione documentale (Docs, ADR, RFC, …)", level: 1 },
-    { name: "Redazione liste test e report", level: 1 },
+    {
+      name: "Risoluzione proattiva dei problemi",
+      level: 1,
+      description:
+        "Capacità di identificare e risolvere problematiche tecniche prima che diventino critiche, utilizzando approccio analitico e metodologie structured troubleshooting",
+    },
+    {
+      name: "Ottimizzazione dei processi di sviluppo",
+      level: 1,
+      description:
+        "Miglioramento continuo di workflow, automazione di task ripetitivi e implementazione di best practices per incrementare l'efficienza del team",
+    },
+    {
+      name: "Lavoro in team e collaborazione con stakeholder",
+      level: 1,
+      description:
+        "Comunicazione efficace con team multidisciplinari, gestione delle aspettative e facilitazione della collaborazione tra ruoli tecnici e business",
+    },
+    {
+      name: "Analisi dei requisiti di progetto",
+      level: 1,
+      description:
+        "Capacità di interpretare le esigenze business, tradurle in specifiche tecniche dettagliate e identificare potenziali rischi e opportunità",
+    },
+    {
+      name: "Supporto al cliente",
+      level: 1,
+      description:
+        "Assistenza tecnica qualificata, gestione di escalation complesse e capacità di spiegare concetti tecnici in modo accessibile",
+    },
+    {
+      name: "Redazione documentale (Docs, ADR, RFC, …)",
+      level: 1,
+      description:
+        "Creazione di documentazione tecnica chiara e strutturata, inclusi Architecture Decision Records e Request for Comments per facilitare decision-making",
+    },
+    {
+      name: "Redazione liste test e report",
+      level: 1,
+      description:
+        "Sviluppo di piani di test completi, definizione di test cases e creazione di report dettagliati per garantire qualità e tracciabilità",
+    },
   ],
   en: [
-    { name: "Proactive troubleshooting & problem solving", level: 1 },
-    { name: "Optimization of development processes", level: 1 },
-    { name: "Team work & stakeholder collaboration", level: 1 },
-    { name: "Analysis of project requirements", level: 1 },
-    { name: "Customer Support", level: 1 },
-    { name: "Document redaction (Docs, ADR, RFC, …)", level: 1 },
-    { name: "Tests lists & reports redaction", level: 1 },
+    {
+      name: "Proactive troubleshooting & problem solving",
+      level: 1,
+      description:
+        "Ability to identify and resolve technical issues before they become critical, using analytical approach and structured troubleshooting methodologies",
+    },
+    {
+      name: "Optimization of development processes",
+      level: 1,
+      description:
+        "Continuous improvement of workflows, automation of repetitive tasks and implementation of best practices to increase team efficiency",
+    },
+    {
+      name: "Team work & stakeholder collaboration",
+      level: 1,
+      description:
+        "Effective communication with multidisciplinary teams, expectation management and facilitation of collaboration between technical and business roles",
+    },
+    {
+      name: "Analysis of project requirements",
+      level: 1,
+      description:
+        "Ability to interpret business needs, translate them into detailed technical specifications and identify potential risks and opportunities",
+    },
+    {
+      name: "Customer Support",
+      level: 1,
+      description:
+        "Qualified technical assistance, management of complex escalations and ability to explain technical concepts in an accessible way",
+    },
+    {
+      name: "Document redaction (Docs, ADR, RFC, …)",
+      level: 1,
+      description:
+        "Creation of clear and structured technical documentation, including Architecture Decision Records and Request for Comments to facilitate decision-making",
+    },
+    {
+      name: "Tests lists & reports redaction",
+      level: 1,
+      description:
+        "Development of comprehensive test plans, definition of test cases and creation of detailed reports to ensure quality and traceability",
+    },
   ],
 };
 
@@ -673,6 +744,39 @@ export const mainProjects: LangData<MainProject[]> = {
       name: "Immergas Dominus",
       description:
         "Applications for remote control and programming of boilers.",
+    },
+  ],
+};
+
+export interface Education {
+  degree: string;
+  period: string;
+  institution: string;
+}
+
+export const education: LangData<Education[]> = {
+  it: [
+    {
+      degree: "Primo anno di Ingegneria Informatica",
+      period: "2003 - 2004",
+      institution: "Università di Padova",
+    },
+    {
+      degree: "Perito tecnico chimico-biologico",
+      period: "1998 - 2003",
+      institution: "IIS Cattaneo, Monselice (Italia)",
+    },
+  ],
+  en: [
+    {
+      degree: "First year of IT engineering",
+      period: "2003 - 2004",
+      institution: "University of Padua",
+    },
+    {
+      degree: "Biochemist technician",
+      period: "1998 - 2003",
+      institution: "IIS Cattaneo, Monselice (Italy)",
     },
   ],
 };

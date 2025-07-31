@@ -9,6 +9,7 @@ import { tiltProps } from "./data";
 import Tilt from "react-parallax-tilt";
 
 export interface SectionProps {
+  icon?: string;
   title: string;
   children: React.ReactNode;
   reflexColor: string;
@@ -17,8 +18,8 @@ export interface SectionProps {
 }
 
 export const Section = (props: SectionProps) => (
-  <div className="min-h-[100vh]">
-    <div className="sticky top-10 mt-40 z-10">
+  <div className="min-h-[150vh]">
+    <div className="sticky top-0 mt-40 z-10 flex min-h-[100vh] items-center justify-center">
       <Tilt
         {...{
           ...tiltProps,
@@ -26,6 +27,7 @@ export const Section = (props: SectionProps) => (
           glareColor:
             props.glareColor ?? props.reflexColor ?? commonColors.white[500],
         }}
+        className="w-full"
       >
         <Card
           className="glass"
@@ -36,7 +38,10 @@ export const Section = (props: SectionProps) => (
           }
         >
           <CardHeader className="px-8 py-4">
-            <h2 className="text-2xl font-light">{props.title}</h2>
+            <h2 className="text-2xl font-light title-font">
+              {props.icon && <i className={`mr-2 ${props.icon}`} />}{" "}
+              {props.title}
+            </h2>
           </CardHeader>
           <Divider />
           <CardBody className="p-8">{props.children}</CardBody>
