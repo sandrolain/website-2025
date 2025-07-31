@@ -85,7 +85,7 @@ export const profileLangs: LangData<Profile> = {
     location: "Monselice, Padua, Italy",
     locationUrl: "https://maps.app.goo.gl/P9L26ghoJ3mLLTZF6",
     website: "https://www.sandrolain.com",
-    headline: `Cloud-Native Engineer ☁️ | DevOps & Platform Integrator ♾️ | 18+ yrs Fullstack Development | Cybersecurity Advocate ⚔️`,
+    headline: `Cloud-Native Engineer ☁️ | DevOps & Platform Integrator ♾️ | ${years}+ yrs Fullstack Development | Cybersecurity Advocate ⚔️`,
     socials: [
       {
         label: "LinkedIn",
@@ -351,7 +351,7 @@ export const descriptionLangs: LangData<() => JSX.Element> = {
   it: () => (
     <div className="description">
       <p>
-        👋 Sono un Cloud Engineer e sviluppatore fullstack con oltre {years}
+        👋 Sono un Cloud Engineer e sviluppatore fullstack con oltre {years}{" "}
         anni di esperienza nello sviluppo di applicazioni web, architetture
         cloud e soluzioni dati scalabili e sicure.
       </p>
@@ -398,26 +398,31 @@ export const descriptionLangs: LangData<() => JSX.Element> = {
   ),
   en: () => (
     <div className="description">
-      👋 I am a Cloud Engineer and fullstack developer with over {years} years
-      of experience in developing web applications, cloud architectures, and
-      scalable, secure data solutions.
-      <br />
-      I work on cloud-native systems, DevOps automation, and end-to-end
-      development, with a strong focus on user experience, code quality, and
-      security.
-      <br />
-      I have designed and developed platforms on Google Cloud Platform and
-      Kubernetes, built CI/CD pipelines, and created applications for IoT,
-      mobile, and web systems.
-      <br />
-      I combine backend skills (Go, Node.js, event-driven APIs) with frontend
-      expertise (Angular, WebComponents, micro-frontends) to deliver complete
-      and modern solutions.
-      <br />
-      I regularly write about cloud, DevOps, AI, and development on
-      fullstackdeveloper.it and share open source projects on GitHub.
-      <br />
-      🔧 Main skills:
+      <p>
+        👋 I am a Cloud Engineer and fullstack developer with over {years} years
+        of experience in developing web applications, cloud architectures, and
+        scalable, secure data solutions.
+      </p>
+      <p>
+        I work on cloud-native systems, DevOps automation, and end-to-end
+        development, with a strong focus on user experience, code quality, and
+        security.
+      </p>
+      <p>
+        I have designed and developed platforms on Google Cloud Platform and
+        Kubernetes, built CI/CD pipelines, and created applications for IoT,
+        mobile, and web systems.
+      </p>
+      <p>
+        I combine backend skills (Go, Node.js, event-driven APIs) with frontend
+        expertise (Angular, WebComponents, micro-frontends) to deliver complete
+        and modern solutions.
+      </p>
+      <p>
+        I regularly write about cloud, DevOps, AI, and development on
+        fullstackdeveloper.it and share open source projects on GitHub.
+      </p>
+      <p>🔧 Main skills:</p>
       <ul>
         <li>
           Cloud & DevOps: GCP, Kubernetes, GitOps, Terraform, CI/CD,
@@ -433,8 +438,10 @@ export const descriptionLangs: LangData<() => JSX.Element> = {
         <li>Security: mTLS, OAuth2/OIDC, encryption, DevSecOps</li>
         <li>Testing: Cypress, WebDriver, Jest, end-to-end testing</li>
       </ul>
-      🎯 Mission: to create modern and secure architectures, from design to
-      production.`,
+      <p>
+        🎯 Mission: to create modern and secure architectures, from design to
+        production.
+      </p>
     </div>
   ),
 };

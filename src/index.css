@@ -37,8 +37,21 @@ body {
 .glass {
   --color: color-mix(in srgb, var(--reflex-color) 15%, transparent);
   --color-2: color-mix(in srgb, var(--reflex-color) 0%, transparent);
-  /* backdrop-filter: blur(10px); */
-  background: linear-gradient(
+  --color-light: color-mix(in srgb, var(--reflex-color) 5%, transparent);
+  /* backdrop-filter: blur(10px); 
+  backdrop-filter: grayscale(100%) blur(10px) contrast(1.2);*/
+  background: repeating-conic-gradient(
+        var(--color-light) 0% 25%,
+        transparent 25% 50%
+      )
+      0 0 / 128px 128px,
+    repeating-conic-gradient(var(--color-light) 0% 25%, transparent 25% 50%) 0 0 /
+      512px 512px,
+    repeating-conic-gradient(var(--color-light) 0% 25%, transparent 25% 50%) 0 0 /
+      256px 256px,
+    repeating-conic-gradient(var(--color-light) 0% 25%, transparent 25% 50%) 0 0 /
+      1024px 1024px,
+    linear-gradient(
       -45deg,
       var(--color),
       var(--color-2),
@@ -52,8 +65,15 @@ body {
   position: relative;
   z-index: 0;
 }
-.glass.glass-circle {
-  border-radius: 50%;
+.glass .glass {
+  background: linear-gradient(
+      -45deg,
+      var(--color),
+      var(--color-2),
+      var(--color-2),
+      var(--color)
+    ),
+    rgba(0, 0, 0, 0.8);
 }
 
 .glare-wrapper {

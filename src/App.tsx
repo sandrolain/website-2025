@@ -2,6 +2,7 @@ import {
   Accordion,
   AccordionItem,
   Avatar,
+  Button,
   Card,
   CardBody,
   CardHeader,
@@ -11,6 +12,7 @@ import {
   Link,
   type AccordionProps,
 } from "@heroui/react";
+import { useState } from "react";
 import Tilt from "react-parallax-tilt";
 import photo from "./assets/avatar-tron.jpg";
 import Bg from "./Bg";
@@ -31,7 +33,44 @@ import SkillList from "./SkillsList";
 import { Section } from "./Section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const lang: Language = "it";
+// Funzione per rilevare la lingua preferita del browser
+const detectBrowserLanguage = (): Language => {
+  if (typeof window !== "undefined") {
+    const browserLang = navigator.language.toLowerCase();
+    if (browserLang.startsWith("it")) {
+      return "it";
+    }
+  }
+  return "en";
+};
+
+// Componente selettore lingua
+const LanguageSelector = ({
+  currentLang,
+  onLanguageChange,
+}: {
+  currentLang: Language;
+  onLanguageChange: (lang: Language) => void;
+}) => (
+  <div className="flex flex-col gap-2">
+    <Button
+      size="sm"
+      variant={currentLang === "it" ? "ghost" : "light"}
+      color="default"
+      onPress={() => onLanguageChange("it")}
+    >
+      🇮🇹 IT
+    </Button>
+    <Button
+      size="sm"
+      variant={currentLang === "en" ? "ghost" : "light"}
+      color="default"
+      onPress={() => onLanguageChange("en")}
+    >
+      🇬🇧 EN
+    </Button>
+  </div>
+);
 
 const titles: LangData<Record<string, string>> = {
   it: {
@@ -57,12 +96,22 @@ const accordionProps: Partial<AccordionProps> = {
 };
 
 function App() {
+  // Stato per la lingua corrente
+  const [lang, setLang] = useState<Language>(() => {
+    // Inizializza con la lingua del browser o "en" come fallback
+    return detectBrowserLanguage();
+  });
+
   const profile = profileLangs[lang];
   const description = descriptionLangs[lang]();
+
   // Forzatura tema scuro
   return (
     <HeroUIProvider>
       <Bg />
+      <div className="fixed top-4 right-4 z-50">
+        <LanguageSelector currentLang={lang} onLanguageChange={setLang} />
+      </div>
       <div className="mx-auto max-w-5xl  p-4 ">
         <div className="min-h-[100vh]">
           <div className="sticky top-0 z-10 flex min-h-[100vh] items-center justify-center">
