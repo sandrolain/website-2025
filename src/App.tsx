@@ -32,6 +32,7 @@ import {
 import SkillList from "./SkillsList";
 import { Section } from "./Section";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ScrollProgress } from "./ScrollProgress";
 
 // Funzione per rilevare la lingua preferita del browser
 const detectBrowserLanguage = (): Language => {
@@ -108,6 +109,7 @@ function App() {
   // Forzatura tema scuro
   return (
     <HeroUIProvider>
+      <ScrollProgress />
       <Bg />
       <div className="fixed top-4 right-4 z-50">
         <LanguageSelector currentLang={lang} onLanguageChange={setLang} />
@@ -179,8 +181,8 @@ function App() {
         <Section
           icon="bi bi-briefcase"
           title={titles[lang].experience}
-          reflexColor={commonColors.yellow[500]}
-          glareColor={commonColors.yellow[500]}
+          reflexColor={commonColors.cyan[500]}
+          glareColor={commonColors.cyan[500]}
         >
           <Accordion {...accordionProps}>
             {workHistory[lang].map((job) => (
@@ -203,8 +205,8 @@ function App() {
         <Section
           icon="bi bi-people"
           title={titles[lang].softSkills}
-          reflexColor={commonColors.cyan[500]}
-          glareColor={commonColors.cyan[500]}
+          reflexColor={commonColors.green[500]}
+          glareColor={commonColors.green[500]}
         >
           <Accordion {...accordionProps}>
             {softSkills[lang].map((skill) => (
@@ -223,8 +225,8 @@ function App() {
         <Section
           icon="bi bi-tools"
           title={titles[lang].skills}
-          reflexColor={commonColors.purple[500]}
-          glareColor={commonColors.purple[500]}
+          reflexColor={commonColors.yellow[500]}
+          glareColor={commonColors.yellow[500]}
         >
           <Accordion {...accordionProps}>
             {skills.map((skill) => (
@@ -247,8 +249,8 @@ function App() {
         <Section
           icon="bi bi-award"
           title={titles[lang].knowledge}
-          reflexColor={commonColors.green[500]}
-          glareColor={commonColors.green[500]}
+          reflexColor={commonColors.red[500]}
+          glareColor={commonColors.red[500]}
         >
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">
@@ -291,8 +293,8 @@ function App() {
         <Section
           icon="bi bi-mortarboard"
           title={titles[lang].education}
-          reflexColor={commonColors.cyan[500]}
-          glareColor={commonColors.cyan[500]}
+          reflexColor={commonColors.purple[500]}
+          glareColor={commonColors.purple[500]}
         >
           <div className="flex flex-col gap-4">
             <ul className="columns-2 gap-8 text-sm">
