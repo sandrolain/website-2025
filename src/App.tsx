@@ -17,6 +17,7 @@ import Tilt from "react-parallax-tilt";
 import photo from "./assets/avatar-tron.jpg";
 import Bg from "./Bg";
 import {
+  awards,
   certifications,
   coursesProfiles,
   descriptionLangs,
@@ -80,6 +81,7 @@ const titles: LangData<Record<string, string>> = {
     education: "Istruzione",
     skills: "Competenze",
     softSkills: "Soft Skills",
+    awards: "Premi e Riconoscimenti",
   },
   en: {
     experience: "Work Experience",
@@ -87,6 +89,7 @@ const titles: LangData<Record<string, string>> = {
     education: "Education",
     skills: "Skills",
     softSkills: "Soft Skills",
+    awards: "Awards and Recognition",
   },
 };
 
@@ -237,8 +240,47 @@ function App() {
               >
                 <SkillList
                   skills={skill.items}
-                  color={commonColors.pink[500]}
+                  color={commonColors.yellow[500]}
                 />
+              </AccordionItem>
+            ))}
+          </Accordion>
+        </Section>
+
+        {/* --- Awards Section --- */}
+
+        <Section
+          icon="bi bi-trophy"
+          title={titles[lang].awards}
+          reflexColor={commonColors.red[500]}
+          glareColor={commonColors.red[500]}
+        >
+          <Accordion {...accordionProps}>
+            {awards[lang].map((award) => (
+              <AccordionItem
+                key={award.name + " - " + award.year}
+                title={award.name + " (" + award.year + ")"}
+                subtitle={award.category + " - " + award.app}
+                className="glass cursor-pointer"
+              >
+                <div className="description">
+                  <p>
+                    <strong>Categoria:</strong> {award.category}
+                  </p>
+                  <p>
+                    <strong>Applicazione:</strong> {award.app}
+                  </p>
+                  <p>
+                    <Link
+                      href={award.url}
+                      target="_blank"
+                      color="primary"
+                      className="text-sm"
+                    >
+                      {award.url}
+                    </Link>
+                  </p>
+                </div>
               </AccordionItem>
             ))}
           </Accordion>
@@ -249,8 +291,8 @@ function App() {
         <Section
           icon="bi bi-award"
           title={titles[lang].knowledge}
-          reflexColor={commonColors.red[500]}
-          glareColor={commonColors.red[500]}
+          reflexColor={commonColors.pink[500]}
+          glareColor={commonColors.pink[500]}
         >
           <div className="flex justify-between">
             <div className="flex flex-col gap-1">

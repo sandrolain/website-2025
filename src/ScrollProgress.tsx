@@ -5,7 +5,7 @@ interface ScrollProgressProps {
   width?: number;
 }
 
-export const ScrollProgress = ({ width = 5 }: ScrollProgressProps) => {
+export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {

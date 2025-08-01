@@ -112,6 +112,17 @@ body {
   p {
     margin-bottom: 1em;
   }
+
+  a {
+    color: var(--reflex-color);
+    text-decoration: underline;
+    transition: color 0.3s ease;
+
+    &:hover {
+      color: var(--reflex-color);
+      text-decoration: none;
+    }
+  }
 }
 
 ul {
