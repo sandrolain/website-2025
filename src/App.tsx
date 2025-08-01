@@ -187,12 +187,12 @@ function App() {
               <AccordionItem
                 key={job.company}
                 title={job.company}
-                subtitle={job.role}
+                subtitle={
+                  job.role + " - " + job.location + " (" + job.period + ")"
+                }
                 className="glass cursor-pointer"
               >
-                <div className="flex flex-col gap-2">
-                  <div className="text-xs text-gray-400">{job.period}</div>
-                </div>
+                <div className="description">{job.description?.()}</div>
               </AccordionItem>
             ))}
           </Accordion>

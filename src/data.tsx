@@ -532,6 +532,7 @@ export interface WorkHistory {
   period: string;
   location: string;
   role: string;
+  description?: () => React.ReactNode; // Optional description for work history
 }
 
 // --- WORK HISTORY DATA ---
@@ -540,52 +541,335 @@ export const workHistory: LangData<WorkHistory[]> = {
     {
       company: "M31",
       period: "2023 - oggi",
-      location: "Padova",
+      location: "Padova, Italia",
       role: "Senior Cloud Engineer (SPAs, µSVCs, K8S)",
+      description: () => (
+        <>
+          <p>
+            Nel corso della mia esperienza in <strong>M31</strong>, ho
+            contribuito attivamente allo sviluppo di soluzioni software
+            complesse, ricoprendo un ruolo trasversale tra sviluppo applicativo,
+            architettura cloud e operations.
+          </p>
+          <p>
+            Mi sono occupato dello{" "}
+            <strong>
+              sviluppo e della manutenzione di servizi backend e frontend
+            </strong>
+            , garantendo qualità, manutenibilità e performance delle soluzioni
+            rilasciate. Ho curato la{" "}
+            <strong>
+              gestione di pipeline di trasformazione e storage dei dati
+            </strong>
+            , implementando flussi affidabili e scalabili per l'elaborazione e
+            la conservazione dei dati aziendali.
+          </p>
+          <p>
+            Ho seguito la{" "}
+            <strong>progettazione e la manutenzione di pipeline CI/CD</strong>,
+            contribuendo all’automatizzazione e all’efficienza del ciclo di
+            sviluppo e rilascio del software. Parallelamente, ho partecipato
+            alla{" "}
+            <strong>
+              progettazione e implementazione di architetture cloud
+            </strong>
+            , adottando best practice per ambienti distribuiti e scalabili.
+          </p>
+          <p>
+            In ambito industriale, ho collaborato alla{" "}
+            <strong>
+              progettazione e allo sviluppo di interfacce macchina
+            </strong>
+            , con particolare attenzione all'integrazione tra sistemi hardware e
+            software, anche in contesti IoT.
+          </p>
+          <p>
+            Inoltre, ho svolto attività di{" "}
+            <strong>
+              tutoring aziendale per studenti dell’Università di Padova
+            </strong>{" "}
+            in tirocinio curricolare, supportandoli nel loro percorso formativo
+            e nello sviluppo di progetti legati alla loro tesi di laurea.
+          </p>
+        </>
+      ),
     },
     {
       company: "XTN Cognitive Security",
       period: "2019 - 2023",
-      location: "Padova",
-      role: "Senior Web Devel. (SPAs, webSDKs, µSVCs)",
+      location: "Padova, Italia",
+      role: "Senior Frontend Developer (SPAs, webSDKs, µSVCs)",
+      description: () => (
+        <>
+          <p>
+            Nel corso della mia esperienza in <strong>XTN</strong>, mi sono
+            concentrato sullo sviluppo di soluzioni web orientate alla sicurezza
+            informatica, con particolare focus sull’integrazione delle
+            tecnologie antifrode.
+          </p>
+          <p>
+            Ho curato lo{" "}
+            <strong>
+              sviluppo e la manutenzione di SDK JavaScript frontend
+            </strong>
+            , progettati per integrare in modo efficiente le soluzioni antifrode
+            dell’azienda all’interno di applicazioni web di terze parti. Questa
+            attività ha richiesto un{" "}
+            <strong>approfondimento avanzato delle Web API del browser</strong>{" "}
+            e delle tecniche di integrazione sicura lato client.
+          </p>
+          <p>
+            Parallelamente, ho partecipato allo{" "}
+            <strong>sviluppo di dashboard di prodotto</strong> per la gestione
+            della piattaforma antifrode, realizzando interfacce moderne e
+            funzionali per l’analisi e il controllo degli eventi rilevati.
+          </p>
+          <p>
+            Ho inoltre contribuito allo <strong>sviluppo di API backend</strong>
+            , progettate per supportare la comunicazione tra gli SDK frontend e
+            i sistemi di analisi del backend, garantendo coerenza, sicurezza e
+            performance nello scambio di dati sensibili.
+          </p>
+        </>
+      ),
     },
     {
       company: "Jiki",
       period: "2013 - 2019",
-      location: "Rovigo",
-      role: "Associate - CTO",
+      location: "Rovigo, Italia",
+      role: "Associate / CTO / Fullstack Developer",
+      description: () => (
+        <>
+          <p>
+            In qualità di{" "}
+            <strong>associate, CTO e full stack developer presso Jiki</strong>,
+            ho guidato lo sviluppo di{" "}
+            <strong>soluzioni software su misura</strong> per una varietà di
+            clienti e settori, con un forte orientamento all’innovazione e alla
+            qualità dell’esperienza utente.
+          </p>
+          <p>
+            Mi sono occupato della{" "}
+            <strong>
+              progettazione e realizzazione di siti web ad alto impatto grafico
+            </strong>{" "}
+            e della definizione dell’
+            <strong>esperienza utente (UX) e dell’interfaccia (UI)</strong>,
+            lavorando in stretta collaborazione con designer e clienti. Ho
+            inoltre seguito lo sviluppo di <strong>servizi SaaS</strong> e{" "}
+            <strong>web app per la gestione documentale da tablet</strong>, con
+            particolare attenzione all’usabilità e all’integrazione nei flussi
+            aziendali.
+          </p>
+          <p>
+            Sul versante tecnico, ho progettato e sviluppato sia{" "}
+            <strong>API backend</strong> sia componenti per la{" "}
+            <strong>comunicazione real-time</strong>, gestendo architetture
+            scalabili e affidabili. In ambito <strong>IoT e domotica</strong>,
+            ho contribuito alla realizzazione di{" "}
+            <strong>
+              app web e native per il controllo remoto di dispositivi
+            </strong>
+            , integrando tecnologie come{" "}
+            <strong>geolocalizzazione e iBeacon</strong> per funzionalità
+            avanzate di interazione contestuale.
+          </p>
+          <p>
+            Questa esperienza mi ha permesso di combinare competenze
+            strategiche, tecniche e di product design in progetti concreti,
+            contribuendo alla crescita della realtà aziendale e alla
+            soddisfazione dei clienti.
+          </p>
+        </>
+      ),
     },
     {
       company: "Libero professionista",
       period: "2008 - 2013",
-      location: "Casa",
+      location: "Padova, Italia",
       role: "Sviluppatore siti web e CMS",
+      description: () => (
+        <>
+          {" "}
+          <p>
+            Come <strong>libero professionista</strong>, ho lavorato alla{" "}
+            <strong>realizzazione di siti web a finalità promozionale</strong>,
+            supportando piccole imprese, professionisti e associazioni nella
+            creazione della propria identità digitale.
+          </p>
+          <p>
+            Oltre allo sviluppo dell’interfaccia pubblica, mi sono occupato
+            anche dell’implementazione di{" "}
+            <strong>sistemi CMS personalizzati</strong> per la gestione autonoma
+            dei contenuti, offrendo soluzioni su misura in base alle esigenze
+            del cliente.
+          </p>
+          <p>
+            Questa esperienza mi ha permesso di affinare le mie competenze full
+            stack e di seguire l’intero ciclo di vita del progetto, dal brief
+            iniziale alla messa online, fino all’assistenza post-lancio.
+          </p>
+        </>
+      ),
     },
   ],
   en: [
     {
       company: "M31",
       period: "2023 - now",
-      location: "Padua",
+      location: "Padua, Italy",
       role: "Senior Cloud Engineer (SPAs, µSVCs, K8S)",
+      description: () => (
+        <>
+          <p>
+            During my experience at <strong>M31</strong>, I actively contributed
+            to the development of complex software solutions, playing a
+            cross-functional role between application development, cloud
+            architecture, and operations.
+          </p>
+          <p>
+            I was responsible for the{" "}
+            <strong>
+              development and maintenance of backend and frontend services
+            </strong>
+            , ensuring quality, maintainability, and performance of the released
+            solutions. I managed the{" "}
+            <strong>data transformation and storage pipelines</strong>,
+            implementing reliable and scalable flows for processing and storing
+            business data.
+          </p>
+          <p>
+            I oversaw the{" "}
+            <strong>design and maintenance of CI/CD pipelines</strong>,
+            contributing to the automation and efficiency of the software
+            development and release cycle. Simultaneously, I participated in the{" "}
+            <strong>design and implementation of cloud architectures</strong>,
+            adopting best practices for distributed and scalable environments.
+          </p>
+          <p>
+            In the industrial sector, I collaborated on the{" "}
+            <strong>design and development of machine interfaces</strong>,
+            focusing on integrating hardware and software systems, including IoT
+            contexts.
+          </p>
+          <p>
+            Additionally, I provided{" "}
+            <strong>mentoring for students from the University of Padua</strong>{" "}
+            during their curricular internships, supporting them in their
+            training path and project development related to their thesis work.
+          </p>
+        </>
+      ),
     },
     {
       company: "XTN Cognitive Security",
       period: "2019 - 2023",
-      location: "Padua",
-      role: "Senior Web Devel. (SPAs, webSDKs, µSVCs)",
+      location: "Padua, Italy",
+      role: "Senior Frontend Developer (SPAs, webSDKs, µSVCs)",
+      description: () => (
+        <>
+          <p>
+            During my experience at <strong>XTN</strong>, I focused on
+            developing web solutions oriented towards cybersecurity, with a
+            particular emphasis on integrating anti-fraud technologies.
+          </p>
+          <p>
+            I was responsible for the{" "}
+            <strong>
+              development and maintenance of frontend JavaScript SDKs
+            </strong>
+            , designed to efficiently integrate the company's anti-fraud
+            solutions into third-party web applications. This required an{" "}
+            <strong>advanced understanding of browser Web APIs</strong> and
+            secure client-side integration techniques.
+          </p>
+          <p>
+            Concurrently, I participated in the{" "}
+            <strong>development of product dashboards</strong> for managing the
+            anti-fraud platform, creating modern and functional interfaces for
+            analyzing and controlling detected events.
+          </p>
+          <p>
+            I also contributed to the{" "}
+            <strong>development of backend APIs</strong>, designed to support
+            communication between frontend SDKs and backend analysis systems,
+            ensuring consistency, security, and performance in the exchange of
+            sensitive data.
+          </p>
+        </>
+      ),
     },
     {
       company: "Jiki",
       period: "2013 - 2019",
-      location: "Rovigo",
+      location: "Rovigo, Italy",
       role: "Associate - CTO",
+      description: () => (
+        <>
+          <p>
+            As an{" "}
+            <strong>associate, CTO, and full stack developer at Jiki</strong>, I
+            led the development of <strong>custom software solutions</strong>{" "}
+            for a variety of clients and sectors, with a strong focus on
+            innovation and user experience quality.
+          </p>
+          <p>
+            I was responsible for the{" "}
+            <strong>
+              design and implementation of high-impact graphic websites
+            </strong>{" "}
+            and defining the{" "}
+            <strong>user experience (UX) and interface (UI)</strong>, working
+            closely with designers and clients. I also oversaw the development
+            of <strong>SaaS solutions</strong> and{" "}
+            <strong>web apps for document management on tablets</strong>, with a
+            focus on usability and integration into business workflows.
+          </p>
+          <p>
+            On the technical side, I designed and developed both{" "}
+            <strong>backend APIs</strong> and components for{" "}
+            <strong>real-time communication</strong>, managing scalable and
+            reliable architectures. In the field of{" "}
+            <strong>IoT and home automation</strong>, I contributed to the
+            creation of{" "}
+            <strong>web and native apps for remote device control</strong>,
+            integrating technologies such as{" "}
+            <strong>geolocation and iBeacon</strong> for advanced contextual
+            interaction features.
+          </p>
+          <p>
+            This experience allowed me to combine strategic, technical, and
+            product design skills in concrete projects, contributing to the
+            growth of the company and client satisfaction.
+          </p>
+        </>
+      ),
     },
     {
       company: "Self-employed",
       period: "2008 - 2013",
-      location: "Home",
+      location: "Padua, Italy",
       role: "Websites and CMS developer",
+      description: () => (
+        <>
+          <p>
+            As a <strong>self-employed developer</strong>, I worked on{" "}
+            <strong>creating promotional websites</strong>, supporting small
+            businesses, professionals, and associations in establishing their
+            digital identity.
+          </p>
+          <p>
+            In addition to developing the public interface, I also implemented{" "}
+            <strong>custom CMS systems</strong> for autonomous content
+            management, offering tailored solutions based on client needs.
+          </p>
+          <p>
+            This experience allowed me to refine my full stack skills and manage
+            the entire project lifecycle, from initial brief to online launch,
+            including post-launch support.
+          </p>
+        </>
+      ),
     },
   ],
 };
