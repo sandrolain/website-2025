@@ -5,7 +5,7 @@ import { RenderPass } from "three/examples/jsm/postprocessing/RenderPass.js";
 import { EffectComposer } from "three/examples/jsm/postprocessing/EffectComposer.js";
 import { GammaCorrectionShader } from "three/examples/jsm/shaders/GammaCorrectionShader.js";
 import { ShaderPass } from "three/examples/jsm/postprocessing/ShaderPass.js";
-//import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader.js";
+import { RGBShiftShader } from "three/examples/jsm/shaders/RGBShiftShader.js";
 import { UnrealBloomPass } from "three/examples/jsm/postprocessing/UnrealBloomPass.js";
 import { commonColors } from "@heroui/react";
 import { PixelatePass } from "./PixelatePass";
@@ -174,10 +174,9 @@ const Bg = () => {
     const renderPass = new RenderPass(scene, camera);
     effectComposer.addPass(renderPass);
 
-    // const rgbShiftPass = new ShaderPass(RGBShiftShader);
-    // rgbShiftPass.uniforms["amount"].value = 0.001;
+    const rgbShiftPass = new ShaderPass(RGBShiftShader);
+    rgbShiftPass.uniforms["amount"].value = 0.0015;
 
-    // effectComposer.addPass(rgbShiftPass);
     const gammaCorrectionPass = new ShaderPass(GammaCorrectionShader);
     effectComposer.addPass(gammaCorrectionPass);
 
@@ -193,6 +192,7 @@ const Bg = () => {
     pixelatePass.setSize(sizes.width, sizes.height);
     //effectComposer.addPass(pixelatePass);
 
+    effectComposer.addPass(rgbShiftPass);
     effectComposer.addPass(bloomPass);
 
     // Resize handler

@@ -93,10 +93,10 @@ export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
         style={{ height: `${width}px` }}
       >
         <div
-          className="h-full m-auto"
+          className="h-full m-auto border-1 border-solid"
           style={{
             width: `${progressPercentage}%`,
-            backgroundColor: progressColor,
+            borderColor: progressColor,
             boxShadow: `0 0 10px ${progressColor}40`,
           }}
         />
@@ -108,10 +108,10 @@ export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
         style={{ height: `${width}px` }}
       >
         <div
-          className="h-full m-auto"
+          className="h-full m-auto border-1 border-solid"
           style={{
             width: `${progressPercentage}%`,
-            backgroundColor: progressColor,
+            borderColor: progressColor,
             boxShadow: `0 0 10px ${progressColor}40`,
           }}
         />
@@ -123,10 +123,10 @@ export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
         style={{ width: `${width}px` }}
       >
         <div
-          className="w-full m-auto absolute"
+          className="w-full m-auto absolute border-1 border-solid"
           style={{
             height: `${progressPercentage}%`,
-            backgroundColor: progressColor,
+            borderColor: progressColor,
             boxShadow: `0 0 10px ${progressColor}40`,
             top: `${(100 - progressPercentage) / 2}%`,
           }}
@@ -139,10 +139,10 @@ export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
         style={{ width: `${width}px` }}
       >
         <div
-          className="w-full m-auto absolute"
+          className="w-full m-auto absolute border-1 border-solid"
           style={{
             height: `${progressPercentage}%`,
-            backgroundColor: progressColor,
+            borderColor: progressColor,
             boxShadow: `0 0 10px ${progressColor}40`,
             top: `${(100 - progressPercentage) / 2}%`,
           }}
