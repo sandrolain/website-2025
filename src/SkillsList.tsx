@@ -10,20 +10,22 @@ const SkillList = ({ skills, color }: SkillListProps) => (
     className="columns-3 gap-20 text-xs whitespace-nowrap"
     style={{ "--level-color": color } as React.CSSProperties}
   >
-    {skills.map((skill) => (
-      <li key={skill.name} className="flex items-center justify-between">
-        <span>
-          {skill.url ? (
-            <a href={skill.url} target="_blank">
-              {skill.name}
-            </a>
-          ) : (
-            skill.name
-          )}
-        </span>
-        {skillLevelBox(skill.level)}
-      </li>
-    ))}
+    {skills
+      .sort((a, b) => b.level - a.level)
+      .map((skill) => (
+        <li key={skill.name} className="flex items-center justify-between">
+          <span>
+            {skill.url ? (
+              <a href={skill.url} target="_blank">
+                {skill.name}
+              </a>
+            ) : (
+              skill.name
+            )}
+          </span>
+          {skillLevelBox(skill.level)}
+        </li>
+      ))}
   </ul>
 );
 

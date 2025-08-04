@@ -109,25 +109,28 @@ export const profileLangs: LangData<Profile> = {
   },
 };
 
+export interface SkillCategory {
+  name: string;
+  items: Skill[];
+}
+
 // --- SKILLS DATA ---
-// --- SKILLS DATA ---
-export const skills: { name: string; items: Skill[] }[] = [
+export const skills: SkillCategory[] = [
   {
     name: "Languages & Fundamentals",
     items: [
       { name: "JavaScript", level: 4 },
-      { name: "TypeScript", level: 3 },
-      { name: "ES6", level: 3 },
-      { name: "Dart", level: 2 },
+      { name: "TypeScript", level: 4 },
+      { name: "Dart", level: 3 },
       { name: "GoLang", level: 3 },
       { name: "Rust", level: 1 },
       { name: "Java", level: 1 },
+      { name: "Python", level: 1 },
       { name: "PHP 6+", level: 3 },
-      { name: "PHP 5+", level: 3 },
       { name: "SQL", level: 3 },
-      { name: "YAML", level: 3 },
+      { name: "YAML", level: 4 },
       { name: "JSON", level: 4 },
-      { name: "Markdown", level: 3 },
+      { name: "Markdown", level: 4 },
       { name: "MDX", level: 3 },
       { name: "Regular expressions", level: 3 },
     ],
@@ -135,22 +138,17 @@ export const skills: { name: string; items: Skill[] }[] = [
   {
     name: "Frontend & UI",
     items: [
-      { name: "HTML5+", level: 3 },
-      { name: "CSS", level: 3 },
+      { name: "HTML5+", level: 4 },
+      { name: "CSS", level: 4 },
       { name: "SASS", level: 3 },
-      { name: "LESS", level: 3 },
-      { name: "Bootstrap", level: 2 },
+      { name: "Tailwind", level: 3 },
       { name: "DOM", level: 4 },
       { name: "UI/UX design", level: 3 },
-      { name: "Responsive design", level: 3 },
-      { name: "LitElement", level: 3 },
-      { name: "Web Components", level: 3 },
-      { name: "Angular", level: 3 },
-      { name: "Angular js", level: 3 },
+      { name: "Responsive design", level: 4 },
+      { name: "LitElement", level: 4 },
+      { name: "Web Components", level: 4 },
+      { name: "Angular", level: 4 },
       { name: "React", level: 3 },
-      { name: "VueJS", level: 1 },
-      { name: "SvelteJS", level: 1 },
-      { name: "Jquery", level: 2 },
     ],
   },
   {
@@ -159,21 +157,18 @@ export const skills: { name: string; items: Skill[] }[] = [
       { name: "NodeJS", level: 3 },
       { name: "NestJS", level: 3 },
       { name: "Data extraction", level: 3 },
-      { name: "HTTP", level: 3 },
+      { name: "HTTP", level: 4 },
       { name: "gRPC", level: 3 },
-      { name: "MQTT", level: 3 },
+      { name: "MQTT", level: 4 },
       { name: "WebSocket (WS)", level: 3 },
-      { name: "TCP", level: 3 },
+      { name: "TCP", level: 4 },
       { name: "UDP", level: 3 },
-      { name: "TCP Modbus", level: 3 },
-      { name: "OpenTherm", level: 3 },
-      { name: "OpenAPI", level: 2 },
-      { name: "Swagger", level: 2 },
-      { name: "JSON Schema", level: 2 },
+      { name: "OpenAPI", level: 3 },
+      { name: "JSON Schema", level: 3 },
       { name: "Kafka", level: 2 },
-      { name: "NATS", level: 2 },
-      { name: "TOTP", level: 3 },
-      { name: "JWT", level: 3 },
+      { name: "NATS", level: 3 },
+      { name: "TOTP", level: 4 },
+      { name: "JWT", level: 4 },
     ],
   },
   {
@@ -183,7 +178,7 @@ export const skills: { name: string; items: Skill[] }[] = [
       { name: "PostgreSQL", level: 3 },
       { name: "MongoDB", level: 3 },
       { name: "Memcached", level: 3 },
-      { name: "Redis", level: 2 },
+      { name: "Redis", level: 3 },
     ],
   },
   {
@@ -192,7 +187,7 @@ export const skills: { name: string; items: Skill[] }[] = [
       { name: "Flutter", level: 3 },
       { name: "React Native", level: 1 },
       { name: "NativeScript", level: 1 },
-      { name: "Wails", level: 2 },
+      { name: "Wails", level: 3 },
     ],
   },
   {
@@ -200,36 +195,29 @@ export const skills: { name: string; items: Skill[] }[] = [
     items: [
       { name: "Kubernetes", level: 4 },
       { name: "Docker", level: 3 },
-      { name: "AWS", level: 3 },
-      { name: "GCP", level: 2 },
+      { name: "AWS", level: 2 },
+      { name: "GCP", level: 3 },
       { name: "Terraform", level: 1 },
-      { name: "CloudFormation", level: 1 },
       { name: "ArgoCD", level: 3 },
       { name: "GitOps", level: 3 },
       { name: "Jenkins", level: 3 },
       { name: "Jenkinsfile", level: 3 },
-      { name: "CI/CD (Jenkins, GitLab, GitHub, Netlify)", level: 3 },
+      { name: "CI/CD", level: 3 },
       { name: "HELM", level: 2 },
       { name: "Apache", level: 3 },
       { name: "Nginx", level: 3 },
-      { name: ".env", level: 3 },
-      { name: "Editorconfig", level: 3 },
-      { name: "Eslint", level: 3 },
       { name: "Shell script", level: 2 },
-      { name: "SemVer", level: 3 },
-      { name: "QRcode", level: 3 },
-      { name: "Mermaid", level: 3, url: "https://mermaid.js.org/" },
     ],
   },
   {
     name: "Security",
     items: [
-      { name: "Secure Coding", level: 3 },
+      { name: "Secure Coding", level: 4 },
       { name: "DevSecOps", level: 3 },
-      { name: "Security Operations", level: 2 },
-      { name: "mTLS", level: 2 },
-      { name: "OAuth2/OIDC", level: 2 },
-      { name: "Cifratura", level: 2 },
+      { name: "Security Operations", level: 3 },
+      { name: "mTLS", level: 3 },
+      { name: "OAuth2/OIDC", level: 3 },
+      { name: "Cifratura", level: 3 },
     ],
   },
   {
@@ -250,7 +238,7 @@ export const skills: { name: string; items: Skill[] }[] = [
       { name: "Jira", level: 3 },
       { name: "Github", level: 3 },
       { name: "GitLab", level: 3 },
-      { name: "Prompt Engineering", level: 2 },
+      { name: "Prompt Engineering", level: 3 },
     ],
   },
 ];
@@ -356,42 +344,40 @@ export const descriptionLangs: LangData<() => JSX.Element> = {
         cloud e soluzioni dati scalabili e sicure.
       </p>
       <p>
-        Lavoro su sistemi cloud-native, automazione DevOps e sviluppo
-        end-to-end, con particolare attenzione all’esperienza utente, alla
-        qualità del codice e alla sicurezza.
+        Specializzato in sistemi cloud-native, automazione DevOps e sviluppo
+        end-to-end, con particolare focus su qualità del codice, sicurezza e
+        ottimizzazione delle performance.
       </p>
       <p>
-        Ho progettato e sviluppato piattaforme su Google Cloud Platform e
-        Kubernetes, costruito pipeline CI/CD, e realizzato applicazioni per
-        sistemi IoT, mobile e web.
+        Durante la mia carriera ho realizzato progetti che spaziano da soluzioni
+        IoT a piattaforme enterprise, sviluppando architetture a microservizi su
+        cluster Kubernetes e implementando pipeline CI/CD complete.
       </p>
       <p>
-        Coniugo le competenze backend (Go, Node.js, API event-driven) con quelle
-        frontend (Angular, WebComponents, micro-frontends) per offrire soluzioni
-        complete e moderne.
+        Coniugo competenze backend (Go, Node.js, API event-driven) con expertise
+        frontend (Angular, WebComponents, micro-frontends) per creare soluzioni
+        integrate che migliorano l'esperienza utente e ottimizzano la gestione
+        del ciclo di vita dei dispositivi.
       </p>
       <p>
-        Scrivo regolarmente di cloud, DevOps, AI e sviluppo su
-        fullstackdeveloper.it e condivido progetti open source su GitHub.
+        Scrivo regolarmente di cloud, DevOps, AI e sviluppo su{" "}
+        <a href="https://fullstackdeveloper.it">fullstackdeveloper.it</a> e
+        condivido progetti open source su{" "}
+        <a href="https://github.com/sandrolain">GitHub</a>.
       </p>
-      <p>🔧 Competenze principali:</p>
+      <p>🔧 Stack tecnologico:</p>
       <ul>
+        <li>Cloud & DevOps: GCP, Kubernetes, GitOps, Terraform, CI/CD</li>
+        <li>Backend: Go, Node.js, REST/GraphQL, MQTT, gRPC</li>
+        <li>Frontend: TypeScript, Angular, Lit, micro-frontend</li>
         <li>
-          Cloud & DevOps: GCP, Kubernetes, GitOps, Terraform, CI/CD,
-          osservabilità
+          Mobile & IoT: Flutter, React Native, iBeacon, device connectivity
         </li>
-        <li>Backend: Go, Node.js, REST/GraphQL, eventi, webhook</li>
-        <li>
-          Frontend: TypeScript, Angular, Lit, architetture a micro-frontend
-        </li>
-        <li>
-          Mobile & IoT: App ibride JS/TS, connettività con beacon e device
-        </li>
-        <li>Sicurezza: mTLS, OAuth2/OIDC, cifratura, DevSecOps</li>
-        <li>Testing: Cypress, WebDriver, Jest, test end-to-end</li>
+        <li>Security: mTLS, OAuth2/OIDC, DevSecOps</li>
+        <li>Testing: Cypress, Playwright, Jest, end-to-end</li>
       </ul>
       <p>
-        🎯 Missione: creare architetture moderne e sicure, dal design alla
+        🎯 Missione: creare architetture moderne e sicure, dal concept alla
         produzione.
       </p>
     </div>
@@ -404,42 +390,41 @@ export const descriptionLangs: LangData<() => JSX.Element> = {
         scalable, secure data solutions.
       </p>
       <p>
-        I work on cloud-native systems, DevOps automation, and end-to-end
-        development, with a strong focus on user experience, code quality, and
-        security.
+        Specialized in cloud-native systems, DevOps automation, and end-to-end
+        development, with strong focus on code quality, security, and
+        performance optimization.
       </p>
       <p>
-        I have designed and developed platforms on Google Cloud Platform and
-        Kubernetes, built CI/CD pipelines, and created applications for IoT,
-        mobile, and web systems.
+        Throughout my career, I have delivered projects ranging from IoT
+        solutions to enterprise platforms, developing microservices
+        architectures on Kubernetes clusters and implementing complete CI/CD
+        pipelines.
       </p>
       <p>
         I combine backend skills (Go, Node.js, event-driven APIs) with frontend
-        expertise (Angular, WebComponents, micro-frontends) to deliver complete
-        and modern solutions.
+        expertise (Angular, WebComponents, micro-frontends) to create integrated
+        solutions that enhance user experience and optimize device lifecycle
+        management.
       </p>
       <p>
-        I regularly write about cloud, DevOps, AI, and development on
-        fullstackdeveloper.it and share open source projects on GitHub.
+        I regularly write about cloud, DevOps, AI, and development on{" "}
+        <a href="https://fullstackdeveloper.it">fullstackdeveloper.it</a> and
+        share open source projects on{" "}
+        <a href="https://github.com/sandrolain">GitHub</a>.
       </p>
-      <p>🔧 Main skills:</p>
+      <p>🔧 Tech stack:</p>
       <ul>
+        <li>Cloud & DevOps: GCP, Kubernetes, GitOps, Terraform, CI/CD</li>
+        <li>Backend: Go, Node.js, REST/GraphQL, MQTT, gRPC</li>
+        <li>Frontend: TypeScript, Angular, Lit, micro-frontend</li>
         <li>
-          Cloud & DevOps: GCP, Kubernetes, GitOps, Terraform, CI/CD,
-          observability
+          Mobile & IoT: Flutter, React Native, iBeacon, device connectivity
         </li>
-        <li>Backend: Go, Node.js, REST/GraphQL, events, webhooks</li>
-        <li>
-          Frontend: TypeScript, Angular, Lit, micro-frontend architectures
-        </li>
-        <li>
-          Mobile & IoT: Hybrid JS/TS apps, connectivity with beacons and devices
-        </li>
-        <li>Security: mTLS, OAuth2/OIDC, encryption, DevSecOps</li>
-        <li>Testing: Cypress, WebDriver, Jest, end-to-end testing</li>
+        <li>Security: mTLS, OAuth2/OIDC, DevSecOps</li>
+        <li>Testing: Cypress, Playwright, Jest, end-to-end</li>
       </ul>
       <p>
-        🎯 Mission: to create modern and secure architectures, from design to
+        🎯 Mission: to create modern and secure architectures, from concept to
         production.
       </p>
     </div>
