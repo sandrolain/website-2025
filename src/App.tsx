@@ -294,7 +294,7 @@ function App() {
           reflexColor={commonColors.pink[500]}
           glareColor={commonColors.pink[500]}
         >
-          <div className="flex justify-between">
+          <div className="flex md:flex-row flex-col gap-6 justify-between">
             <div className="flex flex-col gap-1">
               <h3 className="text-lg font-semibold">Corsi</h3>
               {coursesProfiles[lang].map((cert) => (
@@ -339,9 +339,9 @@ function App() {
           glareColor={commonColors.purple[500]}
         >
           <div className="flex flex-col gap-4">
-            <ul className="columns-2 gap-8 text-sm">
+            <ul className="sm:columns-2 gap-8 text-sm">
               {education[lang].map((edu) => (
-                <li key={edu.institution}>
+                <li key={edu.institution} className="break-inside-avoid">
                   <h3 className="text-lg font-semibold">{edu.degree}</h3>
                   <p className="text-sm text-gray-300">{edu.institution}</p>
                   <div className="text-xs text-gray-400">{edu.period}</div>

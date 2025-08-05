@@ -7,7 +7,7 @@ export interface SkillListProps {
 
 const SkillList = ({ skills, color }: SkillListProps) => (
   <ul
-    className="columns-3 gap-20 text-xs whitespace-nowrap"
+    className="sm:columns-2 md:columns-3 gap-20 text-xs whitespace-nowrap"
     style={{ "--level-color": color } as React.CSSProperties}
   >
     {skills
