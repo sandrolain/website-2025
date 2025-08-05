@@ -5,7 +5,7 @@ interface ScrollProgressProps {
   width?: number;
 }
 
-export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
+export const ScrollProgress = ({ width = 5 }: ScrollProgressProps) => {
   const [progress, setProgress] = useState(0);
 
   useEffect(() => {
@@ -93,7 +93,7 @@ export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
         style={{ height: `${width}px` }}
       >
         <div
-          className="h-full m-auto border-1 border-solid"
+          className="h-full m-auto border-t-1 border-b-1 border-solid"
           style={{
             width: `${progressPercentage}%`,
             borderColor: progressColor,
@@ -108,7 +108,7 @@ export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
         style={{ height: `${width}px` }}
       >
         <div
-          className="h-full m-auto border-1 border-solid"
+          className="h-full m-auto border-t-1 border-b-1 border-solid"
           style={{
             width: `${progressPercentage}%`,
             borderColor: progressColor,
@@ -123,7 +123,7 @@ export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
         style={{ width: `${width}px` }}
       >
         <div
-          className="w-full m-auto absolute border-1 border-solid"
+          className="w-full m-auto absolute border-l-1 border-r-1 border-solid"
           style={{
             height: `${progressPercentage}%`,
             borderColor: progressColor,
@@ -139,7 +139,7 @@ export const ScrollProgress = ({ width = 4 }: ScrollProgressProps) => {
         style={{ width: `${width}px` }}
       >
         <div
-          className="w-full m-auto absolute border-1 border-solid"
+          className="w-full m-auto absolute border-r-1 border-l-1 border-solid"
           style={{
             height: `${progressPercentage}%`,
             borderColor: progressColor,
